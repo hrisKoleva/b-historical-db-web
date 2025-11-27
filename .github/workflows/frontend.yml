@@ -33,13 +33,6 @@ jobs:
       - name: Build production bundle
         run: npm run build --prefix web
 
-      - name: Upload frontend artefact
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-dist
-          path: web/dist
-          if-no-files-found: error
-
       - name: Deploy to Azure Web App
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: azure/webapps-deploy@v3
