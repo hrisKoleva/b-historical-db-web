@@ -40,3 +40,12 @@ jobs:
           path: web/dist
           if-no-files-found: error
 
+      - name: Deploy to Azure Web App
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'upklinge-hdb'
+          slot-name: 'Production'
+          package: web/dist
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E035679656C6438CB1EEB4CA8CD74B5F }}
+

@@ -149,8 +149,7 @@ const App = () => {
         <div className="app-header__text">
           <h1>Historical Database Portal</h1>
           <p>
-            Search and explore KLINGER Westad history with Azure SQL intelligence. Validate
-            customers, suppliers, and order histories in seconds.
+          Explore decades of KLINGER Westad history with effortless access to every detail.
           </p>
         </div>
         <nav className="app-nav" aria-label="Primary navigation">
