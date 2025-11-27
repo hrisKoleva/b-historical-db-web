@@ -1,0 +1,7 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import klingerLogo from '@assets/KLINGERWestad_hires.png';
+import upkipLogo from '@assets/Upkip-brand-assets-gray-2048x559.png';
+const App = () => {
+    return (_jsxs("div", { className: "app-shell", "data-testid": "app-shell", children: [_jsxs("header", { className: "app-header", children: [_jsx("img", { src: klingerLogo, alt: "KLINGER Westad logo", className: "brand-logo" }), _jsxs("div", { className: "app-header__text", children: [_jsx("h1", { children: "Historical Database Portal" }), _jsx("p", { children: "Search and explore KLINGER Westad history with Azure SQL intelligence." })] }), _jsx("img", { src: upkipLogo, alt: "Upkip logo", className: "app-badge" })] }), _jsx("main", { className: "app-main", children: _jsxs("section", { className: "card-grid", children: [_jsxs("article", { className: "card", children: [_jsx("h2", { children: "Customers" }), _jsx("p", { children: "Locate customers by name, number, contact details, or industry whilst correlating order references." })] }), _jsxs("article", { className: "card", children: [_jsx("h2", { children: "Suppliers" }), _jsx("p", { children: "Review supplier profiles and addresses to accelerate sourcing and audit readiness." })] }), _jsxs("article", { className: "card", children: [_jsx("h2", { children: "Customer Orders" }), _jsx("p", { children: "Drill into customer order history, line items, and BOM structures in a single workspace." })] })] }) })] }));
+};
+export default App;

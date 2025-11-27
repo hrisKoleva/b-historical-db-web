@@ -1,0 +1,67 @@
+name: Backend Pipeline
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  WEBAPP_NAME: upklinge-hdb
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            api/package-lock.json
+            web/package-lock.json
+
+      - name: Install API dependencies
+        run: npm ci --prefix api
+
+      - name: Lint API
+        run: npm run lint --prefix api
+
+      - name: Test API
+        run: npm test --prefix api
+
+      - name: Build API
+        run: npm run build --prefix api
+
+      - name: Install frontend dependencies
+        run: npm ci --prefix web
+
+      - name: Build frontend
+        run: npm run build --prefix web
+
+      - name: Bundle frontend into API distribution
+        run: |
+          rm -rf api/dist/public
+          mkdir -p api/dist/public
+          cp -r web/dist/* api/dist/public/
+
+      - name: Install production dependencies
+        run: npm ci --prefix api --omit=dev
+
+      - name: Create deployment package
+        run: |
+          cd api
+          zip -r ../deploy.zip dist package.json package-lock.json node_modules
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.WEBAPP_NAME }}
+          package: deploy.zip
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
+

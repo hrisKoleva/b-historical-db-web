@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+api/node_modules/
+web/node_modules/
+
+# build outputs
+dist/
+api/dist/
+web/dist/
+coverage/
+api/coverage/
+web/coverage/
+
+# logs and env
+*.log
+.env
+api/.env
+web/.env
+
+# editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+

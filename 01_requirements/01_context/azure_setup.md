@@ -1,0 +1,1 @@
+Make sure to add my ip to the Azure site 

@@ -1,0 +1,42 @@
+name: Frontend Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefix web
+
+      - name: Lint
+        run: npm run lint --prefix web
+
+      - name: Run unit tests
+        run: npm run test --prefix web
+
+      - name: Build production bundle
+        run: npm run build --prefix web
+
+      - name: Upload frontend artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: web/dist
+          if-no-files-found: error
+

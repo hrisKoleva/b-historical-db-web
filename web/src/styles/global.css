@@ -1,0 +1,91 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f7;
+  color: #1a1a1a;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #1a365d 0%, #2d4a7c 100%);
+  color: #ffffff;
+}
+
+.app-header__text h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.app-header__text p {
+  margin: 0.5rem 0 0;
+  opacity: 0.85;
+}
+
+.brand-logo {
+  max-height: 54px;
+}
+
+.app-badge {
+  max-height: 40px;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem 3rem 4rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #1a365d;
+}
+
+.card p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .app-main {
+    padding: 1.5rem;
+  }
+}
+

@@ -1,0 +1,9 @@
+{
+  "name": "b-historical-db-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix api && npm install --prefix web"
+  }
+}
+
