@@ -47,3 +47,10 @@
 6. OPTIMIZED WEB APPLICATION FOR FAST RESULTS
 7. Excellent user experience
 
+# UI requirements
+- Primary font family: `Aleo` (400/600/700) with fallbacks `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`. Every new component must inherit this stack.
+- All customer-facing text aligns with the copy in `03_requirements_copy/01_UI_texts_dont_change.md`.
+- Header layout: KLINGER logo, title, logout button (styled as primary pill), Upkip logo from `@assets/Upkip-brand-assets-gray-2048x559.png`.
+- Entity navigation cards (Customers, Suppliers, Customer orders, Purchase orders, Manufacturing orders, Products) appear in a dedicated section beneath the header, styled as evenly spaced cards with the same font scheme.
+- Buttons and cards use the shared color tokens defined in `web/src/styles/global.css`; no standalone color constants.
+

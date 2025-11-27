@@ -146,6 +146,15 @@ const App = () => {
     window.location.href = '/.auth/logout?post_logout_redirect_uri=/';
   };
 
+  const navCards: Array<{ label: string; isActive?: boolean }> = [
+    { label: 'Customers', isActive: true },
+    { label: 'Suppliers' },
+    { label: 'Customer orders' },
+    { label: 'Purchase orders' },
+    { label: 'Manufacturing orders' },
+    { label: 'Products' }
+  ];
+
   return (
     <div className="app-shell" data-testid="app-shell">
       <header className="app-header">
@@ -154,26 +163,29 @@ const App = () => {
           <h1>Historical Database Portal</h1>
           <p>Explore decades of KLINGER Westad history with effortless access to every detail.</p>
         </div>
-        <nav className="app-nav" aria-label="Primary navigation">
-          <div className="app-nav__links">
-            <button type="button" className="app-nav__item app-nav__item--active">
-              Customers
-            </button>
-            <button type="button" className="app-nav__item">
-              Suppliers
-            </button>
-            <button type="button" className="app-nav__item">
-              Customer orders
-            </button>
-          </div>
-          <button type="button" className="app-nav__logout" onClick={handleLogout}>
-            Log out
-          </button>
-        </nav>
+        <button type="button" className="app-header__logout" onClick={handleLogout}>
+          Log out
+        </button>
         <img src={upkipLogo} alt="Upkip logo" className="app-badge" />
       </header>
 
       <main className="app-main">
+        <section className="nav-card-row" aria-label="Entity navigation">
+          <div className="nav-card-row__grid">
+            {navCards.map(({ label, isActive }) => (
+              <button
+                key={label}
+                type="button"
+                className="nav-card"
+                aria-current={isActive ? 'true' : undefined}
+                data-testid="nav-card"
+              >
+                <span className="nav-card__title">{label}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
         <section className="search-card" aria-labelledby="search-card-title">
           <div className="search-card__header">
             <h2 id="search-card-title" className="search-card__title">
