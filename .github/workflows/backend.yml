@@ -26,7 +26,7 @@ jobs:
             web/package-lock.json
 
       - name: Install API dependencies
-        run: npm ci --prefix api
+        run: npm install --prefix api
 
       - name: Lint API
         run: npm run lint --prefix api
@@ -38,7 +38,7 @@ jobs:
         run: npm run build --prefix api
 
       - name: Install frontend dependencies
-        run: npm ci --prefix web
+        run: npm install --prefix web
 
       - name: Build frontend
         run: npm run build --prefix web
@@ -50,7 +50,7 @@ jobs:
           cp -r web/dist/* api/dist/public/
 
       - name: Install production dependencies
-        run: npm ci --prefix api --omit=dev
+        run: npm install --prefix api --omit=dev
 
       - name: Create deployment package
         run: |
