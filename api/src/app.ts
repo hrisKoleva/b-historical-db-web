@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction, Router } from 'express';
+import path from 'node:path';
 import cors, { CorsOptions } from 'cors';
 import { DatabaseProvider } from './bootstrap/databaseProvider';
 import { CustomerRepository } from './features/customers/customerRepository';
@@ -41,11 +42,25 @@ const createApp = (config: AppConfig = {}, dependencies: AppDependencies = {}) =
   app.use(express.json());
   app.use(cors(buildCorsOptions(config.allowedOrigins)));
 
+  const publicDir = path.resolve(__dirname, 'public');
+  app.use(express.static(publicDir));
+
   app.get('/api/health', (_req, res) => {
     res.status(200).json({ status: 'ok' });
   });
 
   app.use('/api/customers', dependencies.customersRouter ?? createCustomersModule());
+
+  app.get('*', (_req, res, next) => {
+    if (_req.path.startsWith('/api/')) {
+      return next();
+    }
+    res.sendFile(path.join(publicDir, 'index.html'), (err) => {
+      if (err) {
+        next(err);
+      }
+    });
+  });
 
   app.use(errorHandler);
 
