@@ -21,14 +21,14 @@ const sampleCustomer = {
 };
 
 describe('App', () => {
-  const originalFetch = global.fetch;
+  const originalFetch = globalThis.fetch;
 
   beforeEach(() => {
     vi.restoreAllMocks();
   });
 
   afterAll(() => {
-    global.fetch = originalFetch;
+    globalThis.fetch = originalFetch;
   });
 
   it('loads the default query and renders the customer grid', async () => {
@@ -43,7 +43,7 @@ describe('App', () => {
         }
       })
     );
-    global.fetch = mockFetch as unknown as typeof fetch;
+    globalThis.fetch = mockFetch as unknown as typeof fetch;
 
     render(<App />);
 
@@ -86,7 +86,7 @@ describe('App', () => {
       .mockReturnValueOnce(createResponse(firstPage))
       .mockReturnValueOnce(createResponse(secondPage));
 
-    global.fetch = mockFetch as unknown as typeof fetch;
+    globalThis.fetch = mockFetch as unknown as typeof fetch;
     const user = userEvent.setup();
 
     render(<App />);
@@ -106,7 +106,7 @@ describe('App', () => {
       json: async () => ({})
     } as Response);
 
-    global.fetch = mockFetch as unknown as typeof fetch;
+    globalThis.fetch = mockFetch as unknown as typeof fetch;
 
     render(<App />);
 
