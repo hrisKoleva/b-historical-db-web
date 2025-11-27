@@ -148,9 +148,7 @@ const App = () => {
         <img src={klingerLogo} alt="KLINGER Westad logo" className="brand-logo" />
         <div className="app-header__text">
           <h1>Historical Database Portal</h1>
-          <p>
-          Explore decades of KLINGER Westad history with effortless access to every detail.
-          </p>
+          <p>Explore decades of KLINGER Westad history with effortless access to every detail.</p>
         </div>
         <nav className="app-nav" aria-label="Primary navigation">
           <button type="button" className="app-nav__item app-nav__item--active">
@@ -256,9 +254,6 @@ const App = () => {
                           </td>
                           <td aria-label="Customer">
                             <span className="table-cell__title">{customer.name}</span>
-                            {customer.vatNumber && (
-                              <span className="table-cell__muted">VAT {customer.vatNumber}</span>
-                            )}
                           </td>
                           <td aria-label="Phone">
                             {customer.phone ? (

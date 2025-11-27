@@ -38,6 +38,11 @@ body {
   border-bottom: 1px solid var(--color-border);
 }
 
+.app-header__text {
+  flex: 1 1 36rem;
+  min-width: 32rem;
+}
+
 .app-header__text h1 {
   margin: 0;
   font-size: 2rem;
@@ -50,6 +55,7 @@ body {
   max-width: 36rem;
   color: var(--color-muted);
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .brand-logo {
@@ -366,6 +372,14 @@ tbody tr:hover {
   .app-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .app-header__text {
+    min-width: 100%;
+  }
+
+  .app-header__text p {
+    white-space: normal;
   }
 
   .app-nav {
