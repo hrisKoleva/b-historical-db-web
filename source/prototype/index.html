@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLINGER Westad ERP Historical Search - 30 Years of Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --klinger-primary: #1a365d;
+            --klinger-secondary: #2d3748;
+            --klinger-accent: #3182ce;
+            --klinger-success: #38a169;
+            --klinger-warning: #d69e2e;
+            --klinger-danger: #e53e3e;
+            --klinger-light: #f7fafc;
+            --klinger-dark: #1a202c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--klinger-light);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-dark {
+            background-color: var(--klinger-primary) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--klinger-accent);
+            border-color: var(--klinger-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--klinger-primary);
+            border-color: var(--klinger-primary);
+        }
+
+        .bg-primary {
+            background-color: var(--klinger-primary) !important;
+        }
+
+        .text-primary {
+            color: var(--klinger-accent) !important;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border-radius: 0.5rem;
+            transition: box-shadow 0.15s ease-in-out;
+        }
+
+        .card:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .page-content {
+            min-height: 70vh;
+        }
+
+        .bom-tree {
+            position: relative;
+            padding: 1rem;
+        }
+
+        .bom-node {
+            position: relative;
+            margin: 0.5rem 0;
+        }
+
+        .node-content {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .node-content:hover {
+            border-color: var(--klinger-primary);
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 102, 204, 0.1);
+        }
+
+        .root-node .node-content {
+            border-color: var(--klinger-primary);
+            background: linear-gradient(135deg, #f8f9ff 0%, #e6f2ff 100%);
+        }
+
+        .node-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .node-details {
+            flex: 1;
+        }
+
+        .node-actions {
+            margin-left: 1rem;
+        }
+
+        .child-nodes {
+            margin-left: 2rem;
+            border-left: 2px dashed #dee2e6;
+            padding-left: 1rem;
+        }
+
+        .node-connector {
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            width: 1rem;
+            height: 2px;
+            background: #dee2e6;
+        }
+
+        .search-result-item {
+            border: 1px solid #e9ecef;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--klinger-primary);
+            transform: translateY(-1px);
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+
+        .toast-container {
+            z-index: 1060;
+        }
+
+        @media (max-width: 768px) {
+            .bom-tree {
+                padding: 0.5rem;
+            }
+            
+            .child-nodes {
+                margin-left: 1rem;
+            }
+            
+            .node-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .node-actions {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#dashboard">
+                <i class="fas fa-database me-2"></i>
+                KLINGER Westad ERP Archive
+                
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard" onclick="showPage('dashboard')">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products" onclick="showPage('products')">
+                            <i class="fas fa-cog me-1"></i>Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#orders" onclick="showPage('orders')">
+                            <i class="fas fa-shopping-cart me-1"></i>Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#customers" onclick="showPage('customers')">
+                            <i class="fas fa-building me-1"></i>Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#suppliers" onclick="showPage('suppliers')">
+                            <i class="fas fa-truck me-1"></i>Suppliers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bom-config" onclick="showPage('bom-config')">
+                            <i class="fas fa-sitemap me-1"></i>BOM Config
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="navbar-nav">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-1"></i>Asbjørn Rognmo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid mt-4">
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="page-content">
+            <div class="row">
+                <div class="col-12">
+                    <h2><i class="fas fa-database me-2"></i>ERP Historical Data Archive</h2>
+                    <p class="text-muted">30 years of KLINGER Westad valve production data now searchable in Azure SQL</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h3 class="card-title">34,567</h3>
+                                    <p class="card-text">Total Valves</p>
+                                    <small class="opacity-75">1994-2024</small>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-cog fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card text-white" style="background-color: var(--klinger-success);">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h3 class="card-title">8,432</h3>
+                                    <p class="card-text">Historical Orders</p>
+                                    <small class="opacity-75">All shipyards</small>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-shopping-cart fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card text-white" style="background-color: var(--klinger-accent);">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h3 class="card-title">1,247</h3>
+                                    <p class="card-text">Customers</p>
+                                    <small class="opacity-75">Worldwide</small>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-building fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card text-white" style="background-color: var(--klinger-warning);">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h3 class="card-title">456</h3>
+                                    <p class="card-text">Suppliers</p>
+                                    <small class="opacity-75">Components</small>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-truck fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">30-Year Production History</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="categoryChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Search Archive</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" onclick="showPage('products')">
+                                    <i class="fas fa-cog me-2"></i>Search Products
+                                </button>
+                                <button class="btn btn-success" onclick="showPage('orders')">
+                                    <i class="fas fa-shopping-cart me-2"></i>Search Orders
+                                </button>
+                                <button class="btn" style="background-color: var(--klinger-accent); color: white;" onclick="showPage('customers')">
+                                    <i class="fas fa-building me-2"></i>Search Customers
+                                </button>
+                                <button class="btn btn-outline-primary" onclick="showPage('suppliers')">
+                                    <i class="fas fa-truck me-2"></i>Search Suppliers
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Page -->
+        <div id="products-page" class="page-content d-none">
+            <div class="row">
+                <div class="col-12">
+                    <h2><i class="fas fa-cog me-2"></i>Product Archive Search</h2>
+                    <p class="text-muted">Search 34,567 valves from 30 years of KLINGER Westad production (1994-2024)</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Advanced Valve Search</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label for="tag-no" class="form-label">Tag Number</label>
+                            <input type="text" class="form-control" id="tag-no" placeholder="e.g., V001, CV-100">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="article-number" class="form-label">Article Number</label>
+                            <input type="text" class="form-control" id="article-number" placeholder="Westad Article Number">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="size-dn" class="form-label">Size (DN)</label>
+                            <select class="form-select" id="size-dn">
+                                <option value="">All Sizes</option>
+                                <option value="50">DN50</option>
+                                <option value="80">DN80</option>
+                                <option value="100">DN100</option>
+                                <option value="150">DN150</option>
+                                <option value="200">DN200</option>
+                                <option value="250">DN250</option>
+                                <option value="300">DN300</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="valve-type" class="form-label">Type</label>
+                            <select class="form-select" id="valve-type">
+                                <option value="">All Types</option>
+                                <option value="CRYOSEAL">CRYOSEAL 2X</option>
+                                <option value="SCORPIO">SCORPIO 2X</option>
+                                <option value="BUTTERFLY">Butterfly Valve</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="pipe-connect" class="form-label">Pipe Connection</label>
+                            <select class="form-select" id="pipe-connect">
+                                <option value="">All Connections</option>
+                                <option value="Flanged">Flanged</option>
+                                <option value="Welded">Welded</option>
+                                <option value="Threaded">Threaded</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="rating" class="form-label">Class</label>
+                            <select class="form-select" id="rating">
+                                <option value="">Any</option>
+                                <option value="PN16">PN16</option>
+                                <option value="PN25">PN25</option>
+                                <option value="PN40">PN40</option>
+                                <option value="150#">CL150</option>
+                                <option value="300#">CL300</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="service-desc" class="form-label">Service</label>
+                            <input type="text" class="form-control" id="service-desc" placeholder="LNG, Chemical, etc.">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="year-range" class="form-label">Year Range</label>
+                            <select class="form-select" id="year-range">
+                                <option value="">All Years</option>
+                                <option value="2020-2024">2020-2024</option>
+                                <option value="2015-2019">2015-2019</option>
+                                <option value="2010-2014">2010-2014</option>
+                                <option value="2005-2009">2005-2009</option>
+                                <option value="2000-2004">2000-2004</option>
+                                <option value="1994-1999">1994-1999</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-primary me-2" onclick="searchProducts()">
+                                <i class="fas fa-search me-1"></i>Search Products
+                            </button>
+                            <button class="btn btn-secondary me-2" onclick="clearProductSearch()">
+                                <i class="fas fa-times me-1"></i>Clear
+                            </button>
+                            <button class="btn btn-success" onclick="showExportDemo()">
+                                <i class="fas fa-download me-1"></i>Export Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Search Results</h5>
+                    <span class="badge bg-primary" id="product-results-count">0 products found</span>
+                </div>
+                <div class="card-body">
+                    <div id="product-search-results">
+                        <div class="text-center text-muted py-4">
+                            <i class="fas fa-search fa-3x mb-3"></i>
+                            <p>Enter search criteria to find valves from our 30-year archive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Page -->
+        <div id="orders-page" class="page-content d-none">
+            <div class="row">
+                <div class="col-12">
+                    <h2><i class="fas fa-shopping-cart me-2"></i>Order Archive Search</h2>
+                    <p class="text-muted">Search 8,432 historical orders with detailed valve configurations</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Order Search Criteria</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label for="order-number" class="form-label">Order Number</label>
+                            <input type="text" class="form-control" id="order-number" placeholder="e.g., SO-2024-001">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="customer-name" class="form-label">Customer</label>
+                            <input type="text" class="form-control" id="customer-name" placeholder="Company name">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="order-date-from" class="form-label">From Date</label>
+                            <input type="date" class="form-control" id="order-date-from">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="order-date-to" class="form-label">To Date</label>
+                            <input type="date" class="form-control" id="order-date-to">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="order-status" class="form-label">Status</label>
+                            <select class="form-select" id="order-status">
+                                <option value="">All Status</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-primary me-2" onclick="searchOrders()">
+                                <i class="fas fa-search me-1"></i>Search Orders
+                            </button>
+                            <button class="btn btn-secondary me-2" onclick="clearOrderSearch()">
+                                <i class="fas fa-times me-1"></i>Clear
+                            </button>
+                            <button class="btn btn-success" onclick="showExportDemo()">
+                                <i class="fas fa-download me-1"></i>Export Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Order Results</h5>
+                    <span class="badge bg-primary" id="order-results-count">3 orders found</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Valve Count</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-table-body">
+                                <tr onclick="showOrderDetails('SO-2024-001')" style="cursor: pointer;">
+                                    <td><strong>SO-2024-001</strong></td>
+                                    <td>2024-01-15</td>
+                                    <td>Hyundai Heavy Industries</td>
+                                    <td>63 valves</td>
+                                    <td><span class="badge bg-success">Delivered</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showOrderDetails('SO-2024-001')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showOrderDetails('SO-2010-156')" style="cursor: pointer;">
+                                    <td><strong>SO-2010-156</strong></td>
+                                    <td>2010-03-22</td>
+                                    <td>Samsung Heavy Industries</td>
+                                    <td>64 valves</td>
+                                    
+                                    <td><span class="badge bg-success">Delivered</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showOrderDetails('SO-2010-156')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showOrderDetails('SO-1998-089')" style="cursor: pointer;">
+                                    <td><strong>SO-2008-089</strong></td>
+                                    <td>2008-11-08</td>
+                                    <td>Wärtsilä Corporation</td>
+                                    <td>68 valves</td>
+                                    
+                                    <td><span class="badge bg-success">Delivered</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showOrderDetails('SO-1998-089')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customers Page -->
+        <div id="customers-page" class="page-content d-none">
+            <div class="row">
+                <div class="col-12">
+                    <h2><i class="fas fa-building me-2"></i>Customer Archive</h2>
+                    <p class="text-muted">Search 1,247 customers with complete order history</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Customer Search</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="customer-name-search" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" id="customer-name-search" placeholder="e.g., Hyundai Heavy">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="customer-country" class="form-label">Country</label>
+                            <select class="form-select" id="customer-country">
+                                <option value="">All Countries</option>
+                                <option value="South Korea">South Korea</option>
+                                <option value="China">China</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Finland">Finland</option>
+                                <option value="Norway">Norway</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="customer-type" class="form-label">Industry</label>
+                            <select class="form-select" id="customer-type">
+                                <option value="">All Industries</option>
+                                <option value="Shipyard">Shipyard</option>
+                                <option value="LNG Terminal">LNG Terminal</option>
+                                <option value="Marine Equipment">Marine Equipment</option>
+                                <option value="Oil & Gas">Oil & Gas</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">&nbsp;</label>
+                            <button class="btn btn-primary w-100" onclick="searchCustomers()">
+                                <i class="fas fa-search me-1"></i>Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Customer Results</h5>
+                    <span class="badge bg-primary">5 customers found</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Company Name</th>
+                                    <th>Country</th>
+                                    <th>Industry</th>
+                                    <th>Total Orders</th>
+                                    <th>Total Value</th>
+                                    <th>Last Order</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="showCustomerDetails('hyundai-heavy')" style="cursor: pointer;">
+                                    <td><strong>Hyundai Heavy Industries</strong></td>
+                                    <td>South Korea</td>
+                                    <td>Shipyard</td>
+                                    <td>47</td>
+                                    <td>€2,340,000</td>
+                                    <td>2024-01-15</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showCustomerDetails('hyundai-heavy')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showCustomerDetails('samsung-heavy')" style="cursor: pointer;">
+                                    <td><strong>Samsung Heavy Industries</strong></td>
+                                    <td>South Korea</td>
+                                    <td>Shipyard</td>
+                                    <td>32</td>
+                                    <td>€1,890,000</td>
+                                    <td>2024-01-22</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showCustomerDetails('samsung-heavy')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showCustomerDetails('wartsila')" style="cursor: pointer;">
+                                    <td><strong>Wärtsilä Corporation</strong></td>
+                                    <td>Finland</td>
+                                    <td>Marine Equipment</td>
+                                    <td>28</td>
+                                    <td>€890,000</td>
+                                    <td>2023-12-08</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showCustomerDetails('wartsila')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showCustomerDetails('cosco-shipping')" style="cursor: pointer;">
+                                    <td><strong>COSCO Shipping</strong></td>
+                                    <td>China</td>
+                                    <td>Shipyard</td>
+                                    <td>19</td>
+                                    <td>€567,000</td>
+                                    <td>2023-09-15</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showCustomerDetails('cosco-shipping')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suppliers Page -->
+        <div id="suppliers-page" class="page-content d-none">
+            <div class="row">
+                <div class="col-12">
+                    <h2><i class="fas fa-truck me-2"></i>Supplier Archive</h2>
+                    <p class="text-muted">Search 456 suppliers for valve components and materials</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Supplier Search</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="supplier-name-search" class="form-label">Supplier Name</label>
+                            <input type="text" class="form-control" id="supplier-name-search" placeholder="Company name">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="supplier-category" class="form-label">Category</label>
+                            <select class="form-select" id="supplier-category">
+                                <option value="">All Categories</option>
+                                <option value="Castings">Castings & Forgings</option>
+                                <option value="Seals">Seals & Gaskets</option>
+                                <option value="Actuators">Actuators & Gears</option>
+                                <option value="Materials">Raw Materials</option>
+                                <option value="Machining">Machining Services</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="supplier-country" class="form-label">Country</label>
+                            <select class="form-select" id="supplier-country">
+                                <option value="">All Countries</option>
+                                <option value="Norway">Norway</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Denmark">Denmark</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">&nbsp;</label>
+                            <button class="btn btn-primary w-100" onclick="searchSuppliers()">
+                                <i class="fas fa-search me-1"></i>Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Supplier Results</h5>
+                    <span class="badge bg-primary">6 suppliers found</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Supplier Name</th>
+                                    <th>Country</th>
+                                    <th>Category</th>
+                                    <th>Components</th>
+                                    <th>Active Since</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="showSupplierDetails('gokstad')" style="cursor: pointer;">
+                                    <td><strong>Gokstad Maskin AS</strong></td>
+                                    <td>Norway</td>
+                                    <td>Machining Services</td>
+                                    <td>Valve Bodies, Discs</td>
+                                    <td>1995</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showSupplierDetails('gokstad')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showSupplierDetails('trelleborg')" style="cursor: pointer;">
+                                    <td><strong>Trelleborg Sealing Solutions</strong></td>
+                                    <td>Sweden</td>
+                                    <td>Seals & Gaskets</td>
+                                    <td>O-rings, Gaskets</td>
+                                    <td>1998</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showSupplierDetails('trelleborg')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr onclick="showSupplierDetails('rotork')" style="cursor: pointer;">
+                                    <td><strong>Rotork Controls Ltd</strong></td>
+                                    <td>UK</td>
+                                    <td>Actuators & Gears</td>
+                                    <td>Electric Actuators</td>
+                                    <td>2001</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showSupplierDetails('rotork')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOM Configuration Page -->
+        <div id="bom-config-page" class="page-content d-none">
+            <div class="row">
+                <div class="col-12">
+                    <h2><i class="fas fa-sitemap me-2"></i>BOM Configuration Archive</h2>
+                    <p class="text-muted">Product configurations and bill of materials from 30 years of production</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Select Product</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action" onclick="showBOMConfig('CRYOSEAL2X-200')">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">WESTAD CRYOSEAL 2X™</h6>
+                                        <small class="text-muted">DN200</small>
+                                    </div>
+                                    <p class="mb-1">Double offset butterfly valve</p>
+                                    <small class="text-muted">LNG Application • 247 configurations</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action" onclick="showBOMConfig('SCORPIO2X-150')">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">WESTAD SCORPIO 2X™</h6>
+                                        <small class="text-muted">DN150</small>
+                                    </div>
+                                    <p class="mb-1">Double offset butterfly valve</p>
+                                    <small class="text-muted">Chemical Application • 189 configurations</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">BOM Structure</h5>
+                            <button class="btn btn-outline-primary btn-sm" onclick="showExportDemo()">
+                                <i class="fas fa-download me-1"></i>Export BOM
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div id="bom-config-container">
+                                <div class="text-center text-muted py-5">
+                                    <i class="fas fa-sitemap fa-3x mb-3"></i>
+                                    <p>Select a product to view BOM configurations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // KLINGER Westad ERP Historical Data
+        const mockData = {
+            products: [
+                {
+                    id: 1,
+                    position: 1,
+                    sequence: "001",
+                    sizeDN: 200,
+                    tagNo: "CV-001",
+                    serviceDescription: "LNG Main Line Isolation",
+                    vds: "VDS-CRYO-001",
+                    westadArticleNumber: "WV-CRYO2X-200-LNG",
+                    type: "CRYOSEAL 2X",
+                    pipeConnect: "Flanged",
+                    pipeSchedule: "SCH40",
+                    rating: "PN16",
+                    testInstruction: "EN 12266-1",
+                    workingPressure: "16 bar",
+                    cryogenicTesting: "Yes (-196°C)",
+                    valveClass: "Fire Safe",
+                    seal: "Metal Seated",
+                    detailDrawingNumber: "DRW-CRYO-001",
+                    assemblyDrawingNumber: "ASM-CRYO-001",
+                    valveOperation: "Manual",
+                    stemDirection: "Rising",
+                    flangeISO5211: "F07",
+                    shaftDiameter: "35mm",
+                    gearActuatorArticle: "N/A",
+                    gearActuatorMaker: "N/A",
+                    gearActuatorType: "Manual Operation",
+                    flag: "Standard",
+                    greaseNipple: "Yes",
+                    drawingNumber: "DRW-CRYO-001-GA",
+                    girPosition: "Top",
+                    girReferenceDrawing: "GIR-CRYO-001",
+                    gearActuatorAccessories: "N/A",
+                    valvePaintingSystem: "Epoxy",
+                    topCoatColour: "KLINGER Blue",
+                    gearActuatorPaintingSystem: "N/A",
+                    gearTopCoatColour: "N/A",
+                    handwheelPaintingSystem: "Epoxy",
+                    paintReportRequired: "Yes",
+                    remarks: "Special LNG application, certified for -196°C service",
+                    year: 2024,
+                    orderNumber: "SO-2024-001",
+                    customer: "Hyundai Heavy Industries"
+                },
+                {
+                    id: 2,
+                    position: 2,
+                    sequence: "002",
+                    sizeDN: 150,
+                    tagNo: "BV-002",
+                    serviceDescription: "Chemical Transfer Line",
+                    vds: "VDS-SCOR-002",
+                    westadArticleNumber: "WV-SCOR2X-150-CHEM",
+                    type: "SCORPIO 2X",
+                    pipeConnect: "Flanged",
+                    pipeSchedule: "SCH80",
+                    rating: "PN25",
+                    testInstruction: "API 598",
+                    workingPressure: "25 bar",
+                    cryogenicTesting: "No",
+                    valveClass: "Chemical Duty",
+                    seal: "Soft Seated",
+                    detailDrawingNumber: "DRW-SCOR-002",
+                    assemblyDrawingNumber: "ASM-SCOR-002",
+                    valveOperation: "Electric Actuator",
+                    stemDirection: "Non-Rising",
+                    flangeISO5211: "F05",
+                    shaftDiameter: "28mm",
+                    gearActuatorArticle: "ROT-IQ35",
+                    gearActuatorMaker: "Rotork",
+                    gearActuatorType: "IQ35 Electric",
+                    flag: "ATEX Zone 1",
+                    greaseNipple: "No",
+                    drawingNumber: "DRW-SCOR-002-GA",
+                    girPosition: "Side Mount",
+                    girReferenceDrawing: "GIR-SCOR-002",
+                    gearActuatorAccessories: "Junction Box, Heater",
+                    valvePaintingSystem: "Epoxy",
+                    topCoatColour: "Chemical Yellow",
+                    gearActuatorPaintingSystem: "Marine Grade",
+                    gearTopCoatColour: "Actuator Grey",
+                    handwheelPaintingSystem: "N/A",
+                    paintReportRequired: "Yes",
+                    remarks: "Chemical service with ATEX certification",
+                    year: 2010,
+                    orderNumber: "SO-2010-156",
+                    customer: "Samsung Heavy Industries"
+                },
+                {
+                    id: 3,
+                    position: 1,
+                    sequence: "001",
+                    sizeDN: 100,
+                    tagNo: "EV-003",
+                    serviceDescription: "Emergency Shutdown",
+                    vds: "VDS-CRYO-003",
+                    westadArticleNumber: "WV-CRYO2X-100-ESD",
+                    type: "CRYOSEAL 2X",
+                    pipeConnect: "Welded",
+                    pipeSchedule: "SCH160",
+                    rating: "ANSI 300#",
+                    testInstruction: "API 6D",
+                    workingPressure: "50 bar",
+                    cryogenicTesting: "Yes (-162°C)",
+                    valveClass: "Fire Safe + ESD",
+                    seal: "Metal Seated",
+                    detailDrawingNumber: "DRW-CRYO-003",
+                    assemblyDrawingNumber: "ASM-CRYO-003",
+                    valveOperation: "Pneumatic Actuator",
+                    stemDirection: "Non-Rising",
+                    flangeISO5211: "F04",
+                    shaftDiameter: "22mm",
+                    gearActuatorArticle: "EMR-PA120",
+                    gearActuatorMaker: "Emerson",
+                    gearActuatorType: "Pneumatic Spring Return",
+                    flag: "SIL 3 Rated",
+                    greaseNipple: "Yes",
+                    drawingNumber: "DRW-CRYO-003-GA",
+                    girPosition: "Top Mount",
+                    girReferenceDrawing: "GIR-CRYO-003",
+                    gearActuatorAccessories: "Solenoid Valve, Limit Switches",
+                    valvePaintingSystem: "Epoxy",
+                    topCoatColour: "Safety Red",
+                    gearActuatorPaintingSystem: "Industrial",
+                    gearTopCoatColour: "Safety Yellow",
+                    handwheelPaintingSystem: "N/A",
+                    paintReportRequired: "Yes",
+                    remarks: "SIL 3 rated emergency shutdown valve for LNG service",
+                    year: 1998,
+                    orderNumber: "SO-1998-089",
+                    customer: "Wärtsilä Corporation"
+                }
+            ],
+            
+            orders: [
+                {
+                    orderNumber: "SO-2024-001",
+                    date: "2024-01-15",
+                    customer: "Hyundai Heavy Industries",
+                    country: "South Korea",
+                    valveCount: 12,
+                    totalValue: 186000,
+                    status: "Delivered",
+                    valves: [
+                        { tagNo: "CV-001", type: "CRYOSEAL 2X", sizeDN: 200, quantity: 8, unitPrice: 15500 },
+                        { tagNo: "CV-002", type: "CRYOSEAL 2X", sizeDN: 150, quantity: 4, unitPrice: 12500 }
+                    ]
+                },
+                {
+                    orderNumber: "SO-2010-156",
+                    date: "2010-03-22",
+                    customer: "Samsung Heavy Industries", 
+                    country: "South Korea",
+                    valveCount: 24,
+                    totalValue: 145000,
+                    status: "Delivered",
+                    valves: [
+                        { tagNo: "BV-001", type: "SCORPIO 2X", sizeDN: 150, quantity: 16, unitPrice: 8500 },
+                        { tagNo: "BV-002", type: "SCORPIO 2X", sizeDN: 100, quantity: 8, unitPrice: 6500 }
+                    ]
+                },
+                {
+                    orderNumber: "SO-1998-089",
+                    date: "1998-11-08",
+                    customer: "Wärtsilä Corporation",
+                    country: "Finland", 
+                    valveCount: 8,
+                    totalValue: 32000,
+                    status: "Delivered",
+                    valves: [
+                        { tagNo: "EV-001", type: "CRYOSEAL 2X", sizeDN: 100, quantity: 8, unitPrice: 4000 }
+                    ]
+                }
+            ],
+            
+            customers: [
+                {
+                    id: 1,
+                    name: "Hyundai Heavy Industries",
+                    country: "South Korea",
+                    industry: "Shipyard",
+                    totalOrders: 47,
+                    totalValue: 2340000,
+                    lastOrder: "2024-01-15",
+                    status: "Active"
+                },
+                {
+                    id: 2,
+                    name: "Samsung Heavy Industries",
+                    country: "South Korea", 
+                    industry: "Shipyard",
+                    totalOrders: 32,
+                    totalValue: 1890000,
+                    lastOrder: "2024-01-22",
+                    status: "Active"
+                },
+                {
+                    id: 3,
+                    name: "Wärtsilä Corporation",
+                    country: "Finland",
+                    industry: "Marine Equipment",
+                    totalOrders: 28,
+                    totalValue: 890000,
+                    lastOrder: "2023-12-08",
+                    status: "Active"
+                }
+            ],
+            
+            suppliers: [
+                {
+                    id: 1,
+                    name: "Gokstad Maskin AS",
+                    country: "Norway",
+                    category: "Machining Services",
+                    components: "Valve Bodies, Discs",
+                    activeSince: 1995,
+                    status: "Active"
+                },
+                {
+                    id: 2,
+                    name: "Trelleborg Sealing Solutions",
+                    country: "Sweden",
+                    category: "Seals & Gaskets", 
+                    components: "O-rings, Gaskets",
+                    activeSince: 1998,
+                    status: "Active"
+                },
+                {
+                    id: 3,
+                    name: "Rotork Controls Ltd",
+                    country: "UK",
+                    category: "Actuators & Gears",
+                    components: "Electric Actuators",
+                    activeSince: 2001,
+                    status: "Active"
+                }
+            ]
+        };
+
+        let currentPage = 'dashboard';
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDashboardChart();
+        });
+
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('d-none');
+            });
+            
+            // Show selected page
+            document.getElementById(`${pageId}-page`).classList.remove('d-none');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('active');
+            
+            currentPage = pageId;
+        }
+
+        // Product Search Functions
+        function searchProducts() {
+            showToast('Searching product archive...', 'info');
+            setTimeout(() => {
+                const resultsHTML = mockData.products.map(product => `
+                    <div class="search-result-item border rounded p-3 mb-3" onclick="showProductDetails(${product.id})">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6 class="mb-1">${product.tagNo} - ${product.type} DN${product.sizeDN}</h6>
+                                <p class="mb-1 text-muted">${product.serviceDescription}</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-primary me-2">${product.type}</span>
+                                    <span class="badge bg-secondary me-2">DN${product.sizeDN}</span>
+                                    <span class="badge bg-success">${product.rating}</span>
+                                </div>
+                                <small class="text-muted">
+                                    Order: ${product.orderNumber} | Customer: ${product.customer} | Year: ${product.year}
+                                </small>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <div class="mb-2">
+                                    <strong>Article: ${product.westadArticleNumber}</strong>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); showProductDetails(${product.id})">
+                                        <i class="fas fa-eye"></i> Details
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="event.stopPropagation(); showBOMConfig('${product.id}')">
+                                        <i class="fas fa-sitemap"></i> BOM
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.getElementById('product-search-results').innerHTML = resultsHTML;
+                document.getElementById('product-results-count').textContent = `${mockData.products.length} products found`;
+                showToast('Search completed', 'success');
+            }, 800);
+        }
+
+        function clearProductSearch() {
+            document.getElementById('tag-no').value = '';
+            document.getElementById('article-number').value = '';
+            document.getElementById('size-dn').value = '';
+            document.getElementById('valve-type').value = '';
+            document.getElementById('product-search-results').innerHTML = `
+                <div class="text-center text-muted py-4">
+                    <i class="fas fa-search fa-3x mb-3"></i>
+                    <p>Enter search criteria to find valves from our 30-year archive</p>
+                </div>
+            `;
+            document.getElementById('product-results-count').textContent = '0 products found';
+        }
+
+        function showProductDetails(productId) {
+            const product = mockData.products.find(p => p.id === productId);
+            if (product) {
+                const modalHTML = `
+                    <div class="modal fade" id="productModal" tabindex="-1">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Valve Details - ${product.tagNo}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Basic Information</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Tag Number:</strong></td><td>${product.tagNo}</td></tr>
+                                                <tr><td><strong>Article Number:</strong></td><td>${product.westadArticleNumber}</td></tr>
+                                                <tr><td><strong>Type:</strong></td><td>${product.type}</td></tr>
+                                                <tr><td><strong>Size (DN):</strong></td><td>${product.sizeDN}</td></tr>
+                                                <tr><td><strong>Service:</strong></td><td>${product.serviceDescription}</td></tr>
+                                                <tr><td><strong>VDS:</strong></td><td>${product.vds}</td></tr>
+                                            </table>
+                                            
+                                            <h6 class="mt-3">Connection & Rating</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Pipe Connection:</strong></td><td>${product.pipeConnect}</td></tr>
+                                                <tr><td><strong>Pipe Schedule:</strong></td><td>${product.pipeSchedule}</td></tr>
+                                                <tr><td><strong>Rating:</strong></td><td>${product.rating}</td></tr>
+                                                <tr><td><strong>Working Pressure:</strong></td><td>${product.workingPressure}</td></tr>
+                                                <tr><td><strong>Test Instruction:</strong></td><td>${product.testInstruction}</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Technical Specifications</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Valve Operation:</strong></td><td>${product.valveOperation}</td></tr>
+                                                <tr><td><strong>Stem Direction:</strong></td><td>${product.stemDirection}</td></tr>
+                                                <tr><td><strong>Valve Class:</strong></td><td>${product.valveClass}</td></tr>
+                                                <tr><td><strong>Seal Type:</strong></td><td>${product.seal}</td></tr>
+                                                <tr><td><strong>Cryogenic Testing:</strong></td><td>${product.cryogenicTesting}</td></tr>
+                                                <tr><td><strong>Flag:</strong></td><td>${product.flag}</td></tr>
+                                            </table>
+                                            
+                                            <h6 class="mt-3">Actuator & Mounting</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Flange ISO 5211:</strong></td><td>${product.flangeISO5211}</td></tr>
+                                                <tr><td><strong>Shaft Diameter:</strong></td><td>${product.shaftDiameter}</td></tr>
+                                                <tr><td><strong>Actuator Maker:</strong></td><td>${product.gearActuatorMaker}</td></tr>
+                                                <tr><td><strong>Actuator Type:</strong></td><td>${product.gearActuatorType}</td></tr>
+                                                <tr><td><strong>GIR Position:</strong></td><td>${product.girPosition}</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <h6>Painting & Finishing</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Valve Painting:</strong></td><td>${product.valvePaintingSystem}</td></tr>
+                                                <tr><td><strong>Top Coat Colour:</strong></td><td>${product.topCoatColour}</td></tr>
+                                                <tr><td><strong>Paint Report:</strong></td><td>${product.paintReportRequired}</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Documentation</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Detail Drawing:</strong></td><td>${product.detailDrawingNumber}</td></tr>
+                                                <tr><td><strong>Assembly Drawing:</strong></td><td>${product.assemblyDrawingNumber}</td></tr>
+                                                <tr><td><strong>GIR Reference:</strong></td><td>${product.girReferenceDrawing}</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    ${product.remarks ? `
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <h6>Remarks</h6>
+                                                <p class="text-muted">${product.remarks}</p>
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" onclick="showExportDemo()">
+                                        <i class="fas fa-download me-1"></i>Export Details
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                const modal = new bootstrap.Modal(document.getElementById('productModal'));
+                modal.show();
+                
+                document.getElementById('productModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+            }
+        }
+
+        // Order Search Functions
+        function searchOrders() {
+            showToast('Searching order archive...', 'info');
+            setTimeout(() => {
+                showToast('Search completed', 'success');
+            }, 800);
+        }
+
+        function clearOrderSearch() {
+            document.getElementById('order-number').value = '';
+            document.getElementById('customer-name').value = '';
+            document.getElementById('order-date-from').value = '';
+            document.getElementById('order-date-to').value = '';
+            document.getElementById('order-status').value = '';
+        }
+
+        function showOrderDetails(orderNumber) {
+            const order = mockData.orders.find(o => o.orderNumber === orderNumber);
+            if (order) {
+                const valveListHTML = order.valves.map(valve => `
+                    <tr>
+                        <td>${valve.tagNo}</td>
+                        <td>${valve.type}</td>
+                        <td>DN${valve.sizeDN}</td>
+                        <td>${valve.quantity}</td>
+                        <td>€${valve.unitPrice.toLocaleString()}</td>
+                        <td><strong>€${(valve.quantity * valve.unitPrice).toLocaleString()}</strong></td>
+                    </tr>
+                `).join('');
+
+                const modalHTML = `
+                    <div class="modal fade" id="orderModal" tabindex="-1">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Order Details - ${order.orderNumber}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <h6>Order Information</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Order Number:</strong></td><td>${order.orderNumber}</td></tr>
+                                                <tr><td><strong>Date:</strong></td><td>${order.date}</td></tr>
+                                                <tr><td><strong>Customer:</strong></td><td>${order.customer}</td></tr>
+                                                <tr><td><strong>Country:</strong></td><td>${order.country}</td></tr>
+                                                <tr><td><strong>Status:</strong></td><td><span class="badge bg-success">${order.status}</span></td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Order Summary</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Total Valves:</strong></td><td>${order.valveCount}</td></tr>
+                                                <tr><td><strong>Total Value:</strong></td><td><strong>€${order.totalValue.toLocaleString()}</strong></td></tr>
+                                                <tr><td><strong>Average Unit:</strong></td><td>€${Math.round(order.totalValue/order.valveCount).toLocaleString()}</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <h6>Valve Details</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-hover">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Tag No</th>
+                                                    <th>Type</th>
+                                                    <th>Size</th>
+                                                    <th>Quantity</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                ${valveListHTML}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" onclick="createReorderQuote('${order.orderNumber}')">
+                                        <i class="fas fa-redo me-1"></i>Create Reorder Quote
+                                    </button>
+                                    <button type="button" class="btn btn-success" onclick="showExportDemo()">
+                                        <i class="fas fa-download me-1"></i>Export Order
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+                modal.show();
+                
+                document.getElementById('orderModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+            }
+        }
+
+        function createReorderQuote(orderNumber) {
+            showToast(`Creating reorder quote based on ${orderNumber}...`, 'info');
+            setTimeout(() => {
+                showToast('Reorder quote created successfully!', 'success');
+            }, 1500);
+        }
+
+        // Customer Functions
+        function searchCustomers() {
+            showToast('Searching customer archive...', 'info');
+            setTimeout(() => {
+                showToast('Search completed', 'success');
+            }, 800);
+        }
+
+        function showCustomerDetails(customerId) {
+            const customer = mockData.customers.find(c => c.name.toLowerCase().includes(customerId));
+            if (customer) {
+                const customerOrders = mockData.orders.filter(o => o.customer === customer.name);
+                const orderListHTML = customerOrders.map(order => `
+                    <tr onclick="showOrderDetails('${order.orderNumber}')" style="cursor: pointer;">
+                        <td>${order.orderNumber}</td>
+                        <td>${order.date}</td>
+                        <td>${order.valveCount}</td>
+                        <td>€${order.totalValue.toLocaleString()}</td>
+                        <td><span class="badge bg-success">${order.status}</span></td>
+                    </tr>
+                `).join('');
+
+                const modalHTML = `
+                    <div class="modal fade" id="customerModal" tabindex="-1">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Customer Details - ${customer.name}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <h6>Customer Information</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Company Name:</strong></td><td>${customer.name}</td></tr>
+                                                <tr><td><strong>Country:</strong></td><td>${customer.country}</td></tr>
+                                                <tr><td><strong>Industry:</strong></td><td>${customer.industry}</td></tr>
+                                                <tr><td><strong>Status:</strong></td><td><span class="badge bg-success">${customer.status}</span></td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Business Statistics</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Total Orders:</strong></td><td>${customer.totalOrders}</td></tr>
+                                                <tr><td><strong>Total Value:</strong></td><td><strong>€${customer.totalValue.toLocaleString()}</strong></td></tr>
+                                                <tr><td><strong>Average Order:</strong></td><td>€${Math.round(customer.totalValue/customer.totalOrders).toLocaleString()}</td></tr>
+                                                <tr><td><strong>Last Order:</strong></td><td>${customer.lastOrder}</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <h6>Order History</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-hover">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Order Number</th>
+                                                    <th>Date</th>
+                                                    <th>Valve Count</th>
+                                                    <th>Value</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                ${orderListHTML}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" onclick="showExportDemo()">
+                                        <i class="fas fa-download me-1"></i>Export Customer Data
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                const modal = new bootstrap.Modal(document.getElementById('customerModal'));
+                modal.show();
+                
+                document.getElementById('customerModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+            }
+        }
+
+        // Supplier Functions
+        function searchSuppliers() {
+            showToast('Searching supplier archive...', 'info');
+            setTimeout(() => {
+                showToast('Search completed', 'success');
+            }, 800);
+        }
+
+        function showSupplierDetails(supplierId) {
+            const supplier = mockData.suppliers.find(s => s.name.toLowerCase().includes(supplierId));
+            if (supplier) {
+                const modalHTML = `
+                    <div class="modal fade" id="supplierModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Supplier Details - ${supplier.name}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Supplier Information</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Company Name:</strong></td><td>${supplier.name}</td></tr>
+                                                <tr><td><strong>Country:</strong></td><td>${supplier.country}</td></tr>
+                                                <tr><td><strong>Category:</strong></td><td>${supplier.category}</td></tr>
+                                                <tr><td><strong>Status:</strong></td><td><span class="badge bg-success">${supplier.status}</span></td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Business Details</h6>
+                                            <table class="table table-sm">
+                                                <tr><td><strong>Components:</strong></td><td>${supplier.components}</td></tr>
+                                                <tr><td><strong>Active Since:</strong></td><td>${supplier.activeSince}</td></tr>
+                                                <tr><td><strong>Years Active:</strong></td><td>${2024 - supplier.activeSince} years</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" onclick="showExportDemo()">
+                                        <i class="fas fa-download me-1"></i>Export Supplier Data
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                const modal = new bootstrap.Modal(document.getElementById('supplierModal'));
+                modal.show();
+                
+                document.getElementById('supplierModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+            }
+        }
+
+        // BOM Configuration Functions
+        function showBOMConfig(productId) {
+            showToast('Loading BOM configuration...', 'info');
+            setTimeout(() => {
+                const bomHTML = `
+                    <div class="bom-structure">
+                        <h6>WESTAD CRYOSEAL 2X™ DN200 - Complete Assembly</h6>
+                        <div class="table-responsive mt-3">
+                            <table class="table table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Position</th>
+                                        <th>Component</th>
+                                        <th>Material</th>
+                                        <th>Supplier</th>
+                                        <th>Qty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Valve Body</td>
+                                        <td>CF8M Stainless Steel</td>
+                                        <td>Gokstad Maskin AS</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Butterfly Disc</td>
+                                        <td>CF8M Stainless Steel</td>
+                                        <td>Gokstad Maskin AS</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Valve Stem</td>
+                                        <td>17-4PH Stainless Steel</td>
+                                        <td>Gokstad Maskin AS</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Seat Ring</td>
+                                        <td>Stellite Overlay</td>
+                                        <td>Specialized Coating Ltd</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Bearing Set</td>
+                                        <td>PTFE/Bronze</td>
+                                        <td>Trelleborg Sealing</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Packing Set</td>
+                                        <td>Graphite</td>
+                                        <td>Trelleborg Sealing</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Bolts & Nuts</td>
+                                        <td>A4-80 Stainless Steel</td>
+                                        <td>Fastenal Norge</td>
+                                        <td>12</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('bom-config-container').innerHTML = bomHTML;
+                showToast('BOM configuration loaded', 'success');
+            }, 1000);
+        }
+
+        function renderDashboardChart() {
+            const ctx = document.getElementById('categoryChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['LNG Tankers', 'LNG Terminals', 'Chemical Tankers', 'LPG Tankers', 'Oil & Gas Platforms'],
+                        datasets: [{
+                            data: [8450, 5680, 4920, 3240, 2277],
+                            backgroundColor: [
+                                '#1a365d',
+                                '#3182ce',
+                                '#38a169', 
+                                '#d69e2e',
+                                '#2d3748'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Valve Distribution by Application (1994-2024)'
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Export and utility functions
+        function showExportDemo() {
+            showToast('Export functionality would generate professional Excel/CSV files with comprehensive ERP data', 'success');
+        }
+
+        function showToast(message, type = 'info') {
+            const toastHTML = `
+                <div class="toast align-items-center text-white bg-${type === 'info' ? 'primary' : type}" role="alert">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="fas fa-${type === 'success' ? 'check' : 'info'}-circle me-2"></i>
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `;
+            
+            let toastContainer = document.getElementById('toast-container');
+            toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+            const toastElement = toastContainer.lastElementChild;
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+            
+            toastElement.addEventListener('hidden.bs.toast', function() {
+                this.remove();
+            });
+        }
+    </script>
+</body>
+</html>
+</html>
