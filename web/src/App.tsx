@@ -142,6 +142,10 @@ const App = () => {
     }
   };
 
+  const handleLogout = () => {
+    window.location.href = '/.auth/logout?post_logout_redirect_uri=/';
+  };
+
   return (
     <div className="app-shell" data-testid="app-shell">
       <header className="app-header">
@@ -151,14 +155,19 @@ const App = () => {
           <p>Explore decades of KLINGER Westad history with effortless access to every detail.</p>
         </div>
         <nav className="app-nav" aria-label="Primary navigation">
-          <button type="button" className="app-nav__item app-nav__item--active">
-            Customers
-          </button>
-          <button type="button" className="app-nav__item">
-            Suppliers
-          </button>
-          <button type="button" className="app-nav__item">
-            Customer orders
+          <div className="app-nav__links">
+            <button type="button" className="app-nav__item app-nav__item--active">
+              Customers
+            </button>
+            <button type="button" className="app-nav__item">
+              Suppliers
+            </button>
+            <button type="button" className="app-nav__item">
+              Customer orders
+            </button>
+          </div>
+          <button type="button" className="app-nav__logout" onClick={handleLogout}>
+            Log out
           </button>
         </nav>
         <img src={upkipLogo} alt="Upkip logo" className="app-badge" />

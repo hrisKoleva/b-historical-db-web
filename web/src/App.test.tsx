@@ -54,6 +54,7 @@ describe('App', () => {
     expect(mockFetch).toHaveBeenCalledTimes(1);
     expect(mockFetch.mock.calls[0]?.[0]).toContain('/api/customers');
     expect(screen.getByText('Hyundai Heavy')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /log out/i })).toBeInTheDocument();
     const orderCells = screen.getAllByLabelText('Order number');
     const customerOrderCells = screen.getAllByLabelText('Customer order number');
     expect(orderCells[0]).toHaveTextContent('0000001');

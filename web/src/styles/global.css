@@ -71,6 +71,14 @@ body {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.app-nav__links {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .app-nav__item {
@@ -97,6 +105,23 @@ body {
   border-color: var(--color-primary);
   color: #fff;
   box-shadow: 0 12px 22px -14px rgba(11, 79, 156, 0.8);
+}
+
+.app-nav__logout {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-primary-dark);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.app-nav__logout:hover {
+  background: rgba(11, 79, 156, 0.08);
+  border-color: var(--color-accent);
 }
 
 .app-main {
@@ -384,8 +409,18 @@ tbody tr:hover {
 
   .app-nav {
     width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .app-nav__links {
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .app-nav__logout {
+    align-self: flex-start;
   }
 
   .app-main {
