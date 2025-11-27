@@ -37,6 +37,8 @@ export type CustomerSearchResult = {
   customers: CustomerSummary[];
 };
 
+const SCHEMA = 'M3FDBPRD';
+
 export class CustomerRepository {
   constructor(private readonly clientFactory: () => Promise<SqlClient>) {}
 
@@ -68,7 +70,7 @@ export class CustomerRepository {
 
 const CUSTOMER_COUNT_QUERY = `
 SELECT COUNT(*) AS total
-FROM OCUSMA AS cus
+FROM ${SCHEMA}.OCUSMA AS cus
 WHERE (@customerNumber IS NULL OR cus.OKCUNO = @customerNumber)
   AND (@namePattern IS NULL OR cus.OKCUNM LIKE @namePattern)
   AND (@phone IS NULL OR cus.OKPHNO = @phone);
@@ -80,7 +82,7 @@ WITH CustomerOrders AS (
     head.OACUNO AS CustomerNumber,
     COUNT(DISTINCT head.OAORNO) AS OrderCount,
     MAX(head.OAORDT) AS LatestOrderDate
-  FROM OOHEAD AS head
+  FROM ${SCHEMA}.OOHEAD AS head
   GROUP BY head.OACUNO
 )
 SELECT
@@ -91,14 +93,14 @@ SELECT
   orders.OrderCount AS orderCount,
   orders.LatestOrderDate AS latestOrderDate,
   recentOrders.recentOrdersJson AS recentOrdersJson
-FROM OCUSMA AS cus
+FROM ${SCHEMA}.OCUSMA AS cus
 LEFT JOIN CustomerOrders AS orders ON orders.CustomerNumber = cus.OKCUNO
 OUTER APPLY (
   SELECT TOP (5)
     head.OAORNO AS orderNumber,
     head.OACUOR AS customerOrderNumber,
     head.OAORDT AS orderDate
-  FROM OOHEAD AS head
+  FROM ${SCHEMA}.OOHEAD AS head
   WHERE head.OACUNO = cus.OKCUNO
   ORDER BY head.OAORDT DESC
   FOR JSON PATH
