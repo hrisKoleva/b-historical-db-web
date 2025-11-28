@@ -1,0 +1,1 @@
+1. Bug: Category: Responsive design - too much space between header and logout and upkip logo icon when bwroser width narrowed or enter mobile view, the header must remain on the same row when resizing. The Logout button must remain the same width, currently it's shrunk and become almost a circle.
