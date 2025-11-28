@@ -1,0 +1,27 @@
+SELECT 
+	C4BJNO as "Job number",
+	C4PRTF as "Printer file",
+	C4RESP as "Responsible",
+	C4UDTA as "User data",
+	C4SSTA as "Output status",
+	C4HOLD as "Hold output",
+	C4SAVE as "Save output",
+	C4SVRA as "Server address",
+	C4PORT as "Port number",
+	C4FMTP as "Form",
+	C4MVIF as "Interface - media",
+	C4RFPA as "Media control obj used for selection",
+	C4MSID as "Message ID",
+	C4MSGD as "Message",
+	C4RGDT as "Entry date",
+	C4RGTM as "Entry time",
+	C4LMDT as "Change date",
+	C4CHNO as "Change number",
+	C4CHID as "Changed by",
+	C4SIID as "Service identity",
+	C4CJNO as "Current job number",
+	C4JNA as "Job name",
+	C4PGNM as "Program name",
+	C4USID as "User"
+FROM
+	CCTLSF

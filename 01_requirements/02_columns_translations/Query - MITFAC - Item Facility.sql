@@ -1,0 +1,26 @@
+SELECT 
+	M9CONO as "Company",
+	M9FACI as "Facility",
+	M9ITNO as "Item number",
+	M9LEA4 as "Administrative lead time",
+	M9CSNO as "Customs statistical number",
+	M9ORCO as "Country of origin",
+	M9APPR as "Average cost",
+	M9UCOS as "Cost price",
+	M9SOCO as "Ordering cost",
+	M9DLET as "MO lead time method",
+	M9MARC as "MO reservations",
+	M9REWH as "Main warehouse",
+	M9FANO as "On-hand balance - facility",
+	M9FATM as "On-hand balance method - facility",
+	M9AUGE as "Automatic creation of MO",
+	M9CPDC as "Costing decimal places",
+	M9VAMT as "Inventory accounting method",
+	M9RGDT as "Entry date",
+	M9RGTM as "Entry time",
+	M9LMDT as "Change date",
+	M9CHNO as "Change number",
+	M9CHID as "Changed by",
+	M9LMTS as "Timestamp"
+FROM
+	MITFAC

@@ -1,0 +1,1530 @@
+table,column,description
+CBANAC,BCACHO,Account holder
+CBANAC,BCAIT1,Accounting dimension 1
+CBANAC,BCAIT7,Accounting dimension 7
+CBANAC,BCBAF1,Bank account field 1
+CBANAC,BCBAF2,Bank account field 2
+CBANAC,BCBAF3,Bank account field 3
+CBANAC,BCBAF4,Bank account field 4
+CBANAC,BCBAF5,Bank account field 5
+CBANAC,BCBANA,Bank account name
+CBANAC,BCBKAG,Bank EDI agreement number
+CBANAC,BCBKID,Bank account identity
+CBANAC,BCBKIN,Bank account indicator
+CBANAC,BCBKNO,Bank number
+CBANAC,BCBKTP,Bank account type
+CBANAC,BCBRNO,Branch number
+CBANAC,BCC1QF,Code list - qualifier
+CBANAC,BCC1RA,Code list - responsible agent
+CBANAC,BCC2QF,Code list - qualifier
+CBANAC,BCC2RA,Code list - responsible agent
+CBANAC,BCCBPY,Bank priority
+CBANAC,BCCHID,Changed by
+CBANAC,BCCHNO,Change number
+CBANAC,BCCONO,Company
+CBANAC,BCCUCD,Currency
+CBANAC,BCDIVI,Division
+CBANAC,BCFIAN,Account number at financial institution
+CBANAC,BCFICU,Customer number at financial institution
+CBANAC,BCFINC,Financial institution
+CBANAC,BCIBAN,International bank account number
+CBANAC,BCLMDT,Change date
+CBANAC,BCLMTS,Timestamp
+CBANAC,BCLNCD,Language
+CBANAC,BCLONC,Yes/no
+CBANAC,BCNCHL,Number of lines
+CBANAC,BCPYCD,Payment method - accounts receivable
+CBANAC,BCRGDT,Entry date
+CBANAC,BCRGTM,Entry time
+CBANAC,BCSTAT,Status
+CBANAC,BCTXID,Text identity
+CCTLSF,C4BJNO,Job number
+CCTLSF,C4CHID,Changed by
+CCTLSF,C4CHNO,Change number
+CCTLSF,C4CJNO,Current job number
+CCTLSF,C4FMTP,Form
+CCTLSF,C4HOLD,Hold output
+CCTLSF,C4JNA,Job name
+CCTLSF,C4LMDT,Change date
+CCTLSF,C4MSGD,Message
+CCTLSF,C4MSID,Message ID
+CCTLSF,C4MVIF,Interface - media
+CCTLSF,C4PGNM,Program name
+CCTLSF,C4PORT,Port number
+CCTLSF,C4PRTF,Printer file
+CCTLSF,C4RESP,Responsible
+CCTLSF,C4RFPA,Media control obj used for selection
+CCTLSF,C4RGDT,Entry date
+CCTLSF,C4RGTM,Entry time
+CCTLSF,C4SAVE,Save output
+CCTLSF,C4SIID,Service identity
+CCTLSF,C4SSTA,Output status
+CCTLSF,C4SVRA,Server address
+CCTLSF,C4UDTA,User data
+CCTLSF,C4USID,User
+CIDADR,SAADID,Address number
+CIDADR,SAADR1,Address line 1
+CIDADR,SAADR2,Address line 2
+CIDADR,SAADR3,Address line 3
+CIDADR,SAADR4,Address line 4
+CIDADR,SAADTE,Address type
+CIDADR,SACHID,Changed by
+CIDADR,SACHNO,Change number
+CIDADR,SACONO,Company
+CIDADR,SACSCD,Country
+CIDADR,SALMDT,Change date
+CIDADR,SALMTS,Timestamp
+CIDADR,SAPONO,Postal code
+CIDADR,SARGDT,Entry date
+CIDADR,SARGTM,Entry time
+CIDADR,SASTDT,Start date
+CIDADR,SASUNM,Supplier name
+CIDADR,SASUNO,Supplier
+CIDADR,SATOWN,City
+CIDMAS,IDALSU,Search key
+CIDMAS,IDCHID,Changed by
+CIDMAS,IDCHNO,Change number
+CIDMAS,IDCONO,Company
+CIDMAS,IDCOR2,Organization number 2
+CIDMAS,IDCORG,Organization number 1
+CIDMAS,IDCSCD,Country
+CIDMAS,IDDESV,Alternate lang for option description
+CIDMAS,IDDTFM,Date format
+CIDMAS,IDEDIT,Date editing
+CIDMAS,IDLMDT,Change date
+CIDMAS,IDLMTS,Timestamp
+CIDMAS,IDLNCD,Language
+CIDMAS,IDPHN2,Telephone number 2
+CIDMAS,IDPHNO,Telephone number 1
+CIDMAS,IDRGDT,Entry date
+CIDMAS,IDRGTM,Entry time
+CIDMAS,IDSTAT,Status
+CIDMAS,IDSUAL,Supplier alternate identity
+CIDMAS,IDSUNM,Supplier name
+CIDMAS,IDSUNO,Supplier
+CIDMAS,IDSUTY,Supplier type
+CIDMAS,IDTFNO,Facsimile transmission number
+CIDMAS,IDTLNO,Telex number
+CIDMAS,IDVRNO,VAT registration number
+CIDVEN,IIATPR,Attribute pricing rule
+CIDVEN,IIBUYE,Buyer
+CIDVEN,IICGRP,Consolidation group
+CIDVEN,IICHID,Changed by
+CIDVEN,IICHNO,Change number
+CIDVEN,IICONO,Company
+CIDVEN,IICRTP,Exchange rate type
+CIDVEN,IICUCD,Currency
+CIDVEN,IIDT4T,Date type
+CIDVEN,IIDTCD,Date code
+CIDVEN,IILIDT,Not used
+CIDVEN,IILMDT,Change date
+CIDVEN,IILMTS,Timestamp
+CIDVEN,IIMODL,Delivery method
+CIDVEN,IIORTY,Order type
+CIDVEN,IIOUCN,Our customer number at supplier
+CIDVEN,IIPRSU,Payee
+CIDVEN,IIPTDY,Tolerance - payment
+CIDVEN,IIPYME,Payment method - accounts payable
+CIDVEN,IIRESP,Responsible
+CIDVEN,IIRGDT,Entry date
+CIDVEN,IIRGTM,Entry time
+CIDVEN,IISHAC,Shipment advice
+CIDVEN,IISUCL,Supplier group
+CIDVEN,IISUNO,Supplier
+CIDVEN,IISUST,Supplier statistics
+CIDVEN,IISUSY,Number of years of statistics
+CIDVEN,IITDCD,Trade code
+CIDVEN,IITEDL,Delivery terms
+CIDVEN,IITEPY,Payment terms
+CIDVEN,IITXAP,Tax applicable
+CIDVEN,IIVTCD,VAT code
+CSFOUT,SHARCH,Archive
+CSFOUT,SHBJNO,Job number
+CSFOUT,SHCCMA,Copy to e-mail address
+CSFOUT,SHCHID,Changed by
+CSFOUT,SHCOPY,Number of copies
+CSFOUT,SHDEV,Printer
+CSFOUT,SHFDES,Data
+CSFOUT,SHFIET,File type
+CSFOUT,SHFLRN,Folder name
+CSFOUT,SHFMTP,Form
+CSFOUT,SHFRMA,From e-mail address
+CSFOUT,SHFSUX,File suffix
+CSFOUT,SHLMDT,Change date
+CSFOUT,SHMARI,Market identification
+CSFOUT,SHMEDC,Media
+CSFOUT,SHNOTE,Note
+CSFOUT,SHPAFD,File path
+CSFOUT,SHPRTF,Printer file
+CSFOUT,SHRGDT,Entry date
+CSFOUT,SHRGTM,Entry time
+CSFOUT,SHSEQN,Sequence number
+CSFOUT,SHSUBJ,Subject
+CSFOUT,SHTFT1,Fax text 1
+CSFOUT,SHTOMA,To e-mail address
+CSHHED,SHBJNO,Job number
+CSHHED,SHCHID,Changed by
+CSHHED,SHCHNO,Change number
+CSHHED,SHCONO,Company
+CSHHED,SHDIVI,Division
+CSHHED,SHFNID,Function
+CSHHED,SHJOB,Job
+CSHHED,SHLMDT,Change date
+CSHHED,SHRGDT,Entry date
+CSHHED,SHRGTM,Entry time
+CSHHED,SHTX30,Text
+CSHHED,SHUSID,User
+CSHHED,SHXCAT,Job schedule category
+CSHHED,SHXEFR,Every Friday
+CSHHED,SHXEMO,Every Monday
+CSHHED,SHXESA,Every Saturday
+CSHHED,SHXESU,Every Sunday
+CSHHED,SHXETH,Every Thursday
+CSHHED,SHXETU,Every Tuesday
+CSHHED,SHXEWE,Every Wednesday
+CSHHED,SHXJTM,Entry time
+CSHHED,SHXLRD,Last run date
+CSHHED,SHXLRS,Last run status
+CSHHED,SHXLRT,Last run time
+CSHHED,SHXSTI,Recovery action
+CSHHED,SHXVSN,Version
+CSYDPM,CGCCMA,Copy to e-mail address
+CSYDPM,CGCHID,Changed by
+CSYDPM,CGCHNO,Change number
+CSYDPM,CGCONO,Company
+CSYDPM,CGCPPL,Copy
+CSYDPM,CGDIVI,Division
+CSYDPM,CGDONR,Document number
+CSYDPM,CGFRMA,From e-mail address
+CSYDPM,CGLMDT,Change date
+CSYDPM,CGMEDC,Media
+CSYDPM,CGMETY,Media category
+CSYDPM,CGMVIF,Interface - media
+CSYDPM,CGNOTE,Note
+CSYDPM,CGPRF1,Document/media controlling object 1
+CSYDPM,CGPRF2,Document/media control object 2
+CSYDPM,CGRGDT,Entry date
+CSYDPM,CGRGTM,Entry time
+CSYDPM,CGRRD1,Receiver reference data 1
+CSYDPM,CGRRD2,Receiver reference data 2
+CSYDPM,CGRRD3,Receiver reference data 3
+CSYDPM,CGSEQN,Sequence number
+CSYDPM,CGSIID,Service identity
+CSYDPM,CGSRD1,Sender reference data 1
+CSYDPM,CGSRD2,Sender reference data 2
+CSYDPM,CGSUBJ,Subject
+CSYDPM,CGTFT1,Fax text 1
+CSYDPM,CGTOMA,To e-mail address
+DROUTE,DRACNC,Automatic connection to shipment
+DROUTE,DRCHID,Changed by
+DROUTE,DRCHNO,Change number
+DROUTE,DRCONO,Company
+DROUTE,DRDLAC,Ignore deadline when connecting dely no
+DROUTE,DRDLMC,Manual shipment scheduling allowed
+DROUTE,DRFWNO,Forwarding agent
+DROUTE,DRLMDT,Change date
+DROUTE,DRLMTS,Timestamp
+DROUTE,DRMACA,Transportation equipment
+DROUTE,DRMADE,Time of departure
+DROUTE,DRMODL,Delivery method
+DROUTE,DRRESP,Responsible
+DROUTE,DRRGDT,Entry date
+DROUTE,DRRGTM,Entry time
+DROUTE,DRROUT,Route
+DROUTE,DRRUTP,Route type
+DROUTE,DRSDES,Place of loading
+DROUTE,DRSILH,Stipulated internal lead time - hours
+DROUTE,DRTRCA,Transportation equipment
+DROUTE,DRTX15,Name
+DROUTE,DRTX40,Description
+FGLEDG,EGACAM,Recorded amount
+FGLEDG,EGACDT,Accounting date
+FGLEDG,EGACQT,Quantity
+FGLEDG,EGAIT1,Accounting dimension 1
+FGLEDG,EGAIT2,Accounting dimension 2
+FGLEDG,EGAIT3,Accounting dimension 3
+FGLEDG,EGAIT4,Accounting dimension 4
+FGLEDG,EGAIT5,Accounting dimension 5
+FGLEDG,EGAIT6,Accounting dimension 6
+FGLEDG,EGAIT7,Accounting dimension 7
+FGLEDG,EGAPCD,Authorized user
+FGLEDG,EGAPRV,Approved for payment
+FGLEDG,EGARAT,Exchange rate
+FGLEDG,EGAT04,VAT account type
+FGLEDG,EGBSCD,Base country
+FGLEDG,EGCHID,Changed by
+FGLEDG,EGCHNO,Change number
+FGLEDG,EGCONO,Company
+FGLEDG,EGCRTP,Exchange rate type
+FGLEDG,EGCUAM,Foreign currency amount
+FGLEDG,EGCUCD,Currency
+FGLEDG,EGCVT1,Calculated VAT amount 1
+FGLEDG,EGCVT2,Calculated VAT amount 2
+FGLEDG,EGDCAM,Decimal places for amount
+FGLEDG,EGDCQT,Decimal places for quantities
+FGLEDG,EGDIVI,Division
+FGLEDG,EGFEID,FAM function
+FGLEDG,EGFNCN,FAM function
+FGLEDG,EGFTCO,From/to country
+FGLEDG,EGGFL3,1 position for miscellaneous use in GL
+FGLEDG,EGGFL4,1 position for miscellaneous use in GL
+FGLEDG,EGJRNO,Journal number
+FGLEDG,EGJSNO,Journal sequence number
+FGLEDG,EGLMDT,Change date
+FGLEDG,EGLMTS,Timestamp
+FGLEDG,EGOCDT,Transaction date
+FGLEDG,EGRECO,Internal reconciliation code
+FGLEDG,EGREDE,Internal reconciliation date
+FGLEDG,EGRGDT,Entry date
+FGLEDG,EGRGTM,Entry time
+FGLEDG,EGTDSC,Transaction description
+FGLEDG,EGTRCD,Transaction code
+FGLEDG,EGVATD,VAT date
+FGLEDG,EGVATR,VAT reported
+FGLEDG,EGVDSC,Voucher name
+FGLEDG,EGVONO,Voucher number
+FGLEDG,EGVRNE,VAT registration no existed
+FGLEDG,EGVRNO,VAT registration number
+FGLEDG,EGVSNO,Voucher sequence number
+FGLEDG,EGVTCD,VAT code
+FGLEDG,EGVTP1,VAT rate 1
+FGLEDG,EGVTXT,Voucher text
+FGLEDG,EGYEA4,Year
+FPLBAL,BPACAC,Recorded amount
+FPLBAL,BPACAD,Recorded amount
+FPLBAL,BPACYP,Accounting period
+FPLBAL,BPCHID,Changed by
+FPLBAL,BPCHNO,Change number
+FPLBAL,BPCONO,Company
+FPLBAL,BPCUAC,Foreign currency amount
+FPLBAL,BPCUAD,Foreign currency amount
+FPLBAL,BPCUCD,Currency
+FPLBAL,BPDIVI,Division
+FPLBAL,BPINAC,Reference field amount
+FPLBAL,BPINAM,Invoice amount
+FPLBAL,BPLMDT,Change date
+FPLBAL,BPOUAC,Reference field amount
+FPLBAL,BPOUAM,Outstanding amount
+FPLBAL,BPPIAC,Reference field amount
+FPLBAL,BPPIAM,Preliminary invoice amount
+FPLBAL,BPPYAC,Reference field amount
+FPLBAL,BPPYAM,Payment amount - local currency
+FPLBAL,BPRGDT,Entry date
+FPLBAL,BPRGTM,Entry time
+FPLBAL,BPSPYN,Payee
+FPLBAL,BPSUNO,Supplier
+FPLBAL,BPTDIC,Reference field amount
+FPLBAL,BPTDIN,Overdue invoice amount
+FPLBAL,BPTUOC,Reference field amount
+FPLBAL,BPTUOV,Sales
+MCBOMS,KUASWQ,Cumulative setup scrap
+MCBOMS,KUBYPR,By/co-product code
+MCBOMS,KUCHID,Changed by
+MCBOMS,KUCNQT,Quantity
+MCBOMS,KUCONO,Company
+MCBOMS,KUCSQT,Cost quantity
+MCBOMS,KUDCCD,Number of decimal places
+MCBOMS,KUFACI,Facility
+MCBOMS,KUITNO,Item number
+MCBOMS,KULMDT,Change date
+MCBOMS,KULMTS,Timestamp
+MCBOMS,KUMSEQ,Sequence number
+MCBOMS,KUMTNO,Component number
+MCBOMS,KUOPNO,Operation number
+MCBOMS,KUPCDT,Costing date
+MCBOMS,KUPCTP,Costing type
+MCBOMS,KUPEUN,Product engineering U/M
+MCBOMS,KURGDT,Entry date
+MCBOMS,KURGTM,Entry time
+MCBOMS,KUSIQT,Standard issued quantity
+MCBOMS,KUSTRT,Product structure type
+MCBOMS,KUSTSQ,Structure sequence number
+MCBOMS,KUVASE,Configuration identity
+MCBOMS,KUWHLO,Warehouse
+MCCMAT,KFCA04,Value component A04
+MCCMAT,KFCA05,Value component A05
+MCCMAT,KFCHID,Changed by
+MCCMAT,KFCMRE,Costing component reference
+MCCMAT,KFCONO,Company
+MCCMAT,KFCROC,Costing category
+MCCMAT,KFFACI,Facility
+MCCMAT,KFFIVA,Fixed/variable value
+MCCMAT,KFITNO,Item number
+MCCMAT,KFLMDT,Change date
+MCCMAT,KFLMTS,Timestamp
+MCCMAT,KFMATC,Material cost
+MCCMAT,KFMSEQ,Sequence number
+MCCMAT,KFPCDT,Costing date
+MCCMAT,KFPCTP,Costing type
+MCCMAT,KFRGDT,Entry date
+MCCMAT,KFRGTM,Entry time
+MCCMAT,KFRORN,Reference order number
+MCCMAT,KFSTRT,Product structure type
+MCCMAT,KFVASE,Configuration identity
+MCCOPE,KGCB01,Value component B01
+MCCOPE,KGCB02,Value component B02
+MCCOPE,KGCB03,Value component B03
+MCCOPE,KGCB04,Value component B04
+MCCOPE,KGCB05,Value component B05
+MCCOPE,KGCB06,Value component B06
+MCCOPE,KGCB07,Value component B07
+MCCOPE,KGCB08,Value component B08
+MCCOPE,KGCB09,Value component B09
+MCCOPE,KGCB10,Value component B10
+MCCOPE,KGCB11,Value component B11
+MCCOPE,KGCB12,Value component B12
+MCCOPE,KGCB13,Value component B13
+MCCOPE,KGCB14,Value component B14
+MCCOPE,KGCC01,Value component C01
+MCCOPE,KGCC02,Value component C02
+MCCOPE,KGCD01,Value component C01
+MCCOPE,KGCHID,Changed by
+MCCOPE,KGCONO,Company
+MCCOPE,KGCROC,Costing category
+MCCOPE,KGFACI,Facility
+MCCOPE,KGFIVA,Fixed/variable value
+MCCOPE,KGITNO,Item number
+MCCOPE,KGLMDT,Change date
+MCCOPE,KGLMTS,Timestamp
+MCCOPE,KGOPNO,Operation number
+MCCOPE,KGPCDT,Costing date
+MCCOPE,KGPCTP,Costing type
+MCCOPE,KGRGDT,Entry date
+MCCOPE,KGRGTM,Entry time
+MCCOPE,KGRORN,Reference order number
+MCCOPE,KGSTRT,Product structure type
+MCCOPE,KGVASE,Configuration identity
+MCHEAD,KOASU1,Costing sum 1
+MCHEAD,KOASU2,Costing sum 2
+MCHEAD,KOASU3,Costing sum 3
+MCHEAD,KOASU4,Costing sum 4
+MCHEAD,KOASU5,Costing sum 5
+MCHEAD,KOASU6,Costing sum 6
+MCHEAD,KOASU7,Costing sum 7
+MCHEAD,KOASU8,Costing sum 7
+MCHEAD,KOASU9,Costing sum 9
+MCHEAD,KOAVST,Average on-hand balance
+MCHEAD,KOBRAS,Data saved
+MCHEAD,KOCHID,Changed by
+MCHEAD,KOCHNO,Change number
+MCHEAD,KOCONO,Company
+MCHEAD,KOCOSN,Costing name
+MCHEAD,KOCROC,Costing category
+MCHEAD,KOCSU1,Costing sum 1
+MCHEAD,KOCSU2,Costing sum 2
+MCHEAD,KOCSU3,Costing sum 3
+MCHEAD,KOCSU4,Costing sum 4
+MCHEAD,KOCSU5,Costing sum 5
+MCHEAD,KOCSU6,Costing sum 6
+MCHEAD,KOCSU7,Costing sum 7
+MCHEAD,KOCSU8,Costing sum 8
+MCHEAD,KOCSU9,Costing sum 9
+MCHEAD,KOECVS,Simulation round
+MCHEAD,KOEOQT,Order quantity
+MCHEAD,KOFACI,Facility
+MCHEAD,KOITNO,Item number
+MCHEAD,KOLEAL,Lead time this level
+MCHEAD,KOLMDT,Change date
+MCHEAD,KOLMTS,Timestamp
+MCHEAD,KOMAUM,Manually updated mark
+MCHEAD,KOMAUP,Manually updated
+MCHEAD,KONUMA,Number of components
+MCHEAD,KONUOP,Number of operations
+MCHEAD,KONUSC,Number of subcontract operations
+MCHEAD,KOPCDT,Costing date
+MCHEAD,KOPCTP,Costing type
+MCHEAD,KOPRCM,Costing model - product costing
+MCHEAD,KORGDT,Entry date
+MCHEAD,KORGTM,Entry time
+MCHEAD,KORORL,Reference order line
+MCHEAD,KORORN,Reference order number
+MCHEAD,KOSMFN,Simulated manufacturing order number
+MCHEAD,KOSTRD,Structure date
+MCHEAD,KOSTRT,Product structure type
+MCHEAD,KOVASE,Configuration identity
+MCHEAD,KOYEQT,Annual demand
+MCROUS,KVASWQ,Cumulative setup scrap
+MCROUS,KVCHID,Changed by
+MCROUS,KVCONO,Company
+MCROUS,KVCTCD,Price and time quantity
+MCROUS,KVFACI,Facility
+MCROUS,KVFDAT,From date
+MCROUS,KVFXTI,Fixed time
+MCROUS,KVINWE,Initial weight
+MCROUS,KVITNO,Item number
+MCROUS,KVLMDT,Change date
+MCROUS,KVLMTS,Timestamp
+MCROUS,KVMFPR,Multiplication factor - manufacturing
+MCROUS,KVMSEQ,Sequence number
+MCROUS,KVOPCM,Operation cost multiplier
+MCROUS,KVOPDS,Operation description
+MCROUS,KVOPNO,Operation number
+MCROUS,KVOSET,External setup time
+MCROUS,KVPCDT,Costing date
+MCROUS,KVPCTP,Costing type
+MCROUS,KVPIPR,Unit price
+MCROUS,KVPITI,Run time
+MCROUS,KVPLGR,Work center
+MCROUS,KVPRNM,Planned number of machines
+MCROUS,KVPRNP,Planned number of workers - run time
+MCROUS,KVRGDT,Entry date
+MCROUS,KVRGTM,Entry time
+MCROUS,KVSENP,Planned number of workers - setup
+MCROUS,KVSEPR,Setup price
+MCROUS,KVSETI,Setup time
+MCROUS,KVSMAT,Standard labor run time used
+MCROUS,KVSPIT,Standard machine run time used
+MCROUS,KVSTRT,Product structure type
+MCROUS,KVSTSQ,Structure sequence number
+MCROUS,KVSUNO,Supplier
+MCROUS,KVTOOL,Tool number
+MCROUS,KVVASE,Configuration identity
+MCROUS,KVWCRF,Time reference
+MFTRNS,OSCHID,Changed by
+MFTRNS,OSCHNO,Change number
+MFTRNS,OSCONO,Company
+MFTRNS,OSCUOR,Customer´s order number
+MFTRNS,OSD1QT,Standard quantity
+MFTRNS,OSDLIX,Delivery number
+MFTRNS,OSDLQA,Delivered quantity - alternate U/M
+MFTRNS,OSDLQT,Delivered quantity - basic U/M
+MFTRNS,OSINOU,Direction
+MFTRNS,OSITNO,Item number
+MFTRNS,OSLMDT,Change date
+MFTRNS,OSLMTS,Timestamp
+MFTRNS,OSNEWE,Net weight
+MFTRNS,OSOEND,Flagged as completed
+MFTRNS,OSPANR,Package number
+MFTRNS,OSRCQT,Receipt quantity
+MFTRNS,OSRGDT,Entry date
+MFTRNS,OSRGTM,Entry time
+MFTRNS,OSRIDL,Order line
+MFTRNS,OSRIDN,Order number
+MFTRNS,OSRORC,Reference order category
+MFTRNS,OSSTAT,Status
+MFTRNS,OSWHLO,Warehouse
+MITBAL,MBABCD,ABC class - volume
+MITBAL,MBABCM,ABC method  - volume
+MITBAL,MBABFC,ABC class - frequency
+MITBAL,MBABFM,ABC method - frequency
+MITBAL,MBACOC,ABC class - contribution
+MITBAL,MBACOM,ABC method - contribution
+MITBAL,MBALMT,Allocation method
+MITBAL,MBALQT,Allocated quantity - basic U/M
+MITBAL,MBAVAL,Allocatable on-hand balance
+MITBAL,MBAVST,Average on-hand balance
+MITBAL,MBBUYE,Buyer
+MITBAL,MBCDYN,Cross-dock
+MITBAL,MBCHID,Changed by
+MITBAL,MBCHNO,Change number
+MITBAL,MBCONC,Continuous net change
+MITBAL,MBCONO,Company
+MITBAL,MBCPCD,CTP policy
+MITBAL,MBDILE,Projected on-hand at end of lead time
+MITBAL,MBDIVI,Division
+MITBAL,MBDPID,Period frame
+MITBAL,MBDPLO,Default pack location
+MITBAL,MBEOQM,Order policy
+MITBAL,MBEOQT,Order quantity
+MITBAL,MBEQDA,Order quantity days
+MITBAL,MBFACI,Facility
+MITBAL,MBFCCM,Forecast logic
+MITBAL,MBIDDT,Last receipt date
+MITBAL,MBINCD,Physical inventory cycle
+MITBAL,MBINDT,Latest physical inventory date
+MITBAL,MBINSC,Statistics storage group
+MITBAL,MBIPLA,Inventory planned
+MITBAL,MBITNO,Item number
+MITBAL,MBLEA1,Supply lead time
+MITBAL,MBLEA2,Inspection lead time
+MITBAL,MBLEA3,Transportation lead time
+MITBAL,MBLEAT,Lead time
+MITBAL,MBLEVL,Lowest level
+MITBAL,MBLMDT,Change date
+MITBAL,MBLMTS,Timestamp
+MITBAL,MBLOQT,Minimum order quantity
+MITBAL,MBMABC,ABC class - manual
+MITBAL,MBMOQT,Maximum order quantity
+MITBAL,MBMPCD,Calculation date - material planning
+MITBAL,MBMPCT,Calculation time - material planning
+MITBAL,MBMSCH,Master scheduled
+MITBAL,MBMXPC,Maximum stock percentage
+MITBAL,MBMXSM,Maximum stock method
+MITBAL,MBNUIN,Number of records for physical inventory
+MITBAL,MBNUS7,Number of balance IDs
+MITBAL,MBODDT,Last issue date
+MITBAL,MBOPLC,Planning method
+MITBAL,MBOPOM,Reorder point method
+MITBAL,MBORQT,Ordered quantity - basic U/M
+MITBAL,MBORTY,Order type
+MITBAL,MBPAFL,Fill partly empty locations
+MITBAL,MBPFTM,Planning time fence
+MITBAL,MBPLCD,Planning policy
+MITBAL,MBPLHZ,Planning horizon
+MITBAL,MBPOOT,Point of time table
+MITBAL,MBPRCD,Forecast method
+MITBAL,MBPRDC,Priority date selection
+MITBAL,MBPRIF,Priority value
+MITBAL,MBPUIT,Acquisition code
+MITBAL,MBQUQT,On-hand balance for inspection
+MITBAL,MBREOP,Reorder point
+MITBAL,MBREQP,Reserved quantity - planned orders
+MITBAL,MBREQT,Reserved quantity
+MITBAL,MBRESP,Responsible
+MITBAL,MBRGDT,Entry date
+MITBAL,MBRGTM,Entry time
+MITBAL,MBRLQT,Reserved quantity to backorder
+MITBAL,MBSATD,Safety time
+MITBAL,MBSCPO,Supply chain policy
+MITBAL,MBSLTP,Stock zone
+MITBAL,MBSODY,Run-out time
+MITBAL,MBSPMT,Issue method
+MITBAL,MBSSDA,Safety stock unit
+MITBAL,MBSSMT,Safety stock method
+MITBAL,MBSSQT,Safety stock
+MITBAL,MBSTAT,Status
+MITBAL,MBSTMT,Storage method
+MITBAL,MBSTQT,On-hand balance approved
+MITBAL,MBSTRL,History storage method
+MITBAL,MBSTTX,Note
+MITBAL,MBSUNO,Supplier
+MITBAL,MBSURT,Surplus stock type
+MITBAL,MBSVEI,Multiple supply
+MITBAL,MBUNMU,Order multiple
+MITBAL,MBUSYE,Annual usage
+MITBAL,MBVTCP,VAT code - purchase
+MITBAL,MBVTCS,VAT code - sales
+MITBAL,MBWHLO,Warehouse
+MITBAL,MBWHSL,Location
+MITBAL,MBWHSY,Warehouse subtype
+MITBAL,MBWHTY,Warehouse type
+MITBAL,MBYEQM,Annual demand method
+MITBAL,MBYEQT,Annual demand
+MITBAL,MBZCAC,Zero mark
+MITFAC,M9APPR,Average cost
+MITFAC,M9AUGE,Automatic creation of MO
+MITFAC,M9CHID,Changed by
+MITFAC,M9CHNO,Change number
+MITFAC,M9CONO,Company
+MITFAC,M9CPDC,Costing decimal places
+MITFAC,M9CSNO,Customs statistical number
+MITFAC,M9DLET,MO lead time method
+MITFAC,M9FACI,Facility
+MITFAC,M9FANO,On-hand balance - facility
+MITFAC,M9FATM,On-hand balance method - facility
+MITFAC,M9ITNO,Item number
+MITFAC,M9LEA4,Administrative lead time
+MITFAC,M9LMDT,Change date
+MITFAC,M9LMTS,Timestamp
+MITFAC,M9MARC,MO reservations
+MITFAC,M9ORCO,Country of origin
+MITFAC,M9REWH,Main warehouse
+MITFAC,M9RGDT,Entry date
+MITFAC,M9RGTM,Entry time
+MITFAC,M9SOCO,Ordering cost
+MITFAC,M9UCOS,Cost price
+MITFAC,M9VAMT,Inventory accounting method
+MITMAS,MMALUC,Alternate U/M in use
+MITMAS,MMALUN,Alternate U/M
+MITMAS,MMCFI1,User-defined field 1 - item
+MITMAS,MMCHCD,Configuration code
+MITMAS,MMCHID,Changed by
+MITMAS,MMCHNO,Change number
+MITMAS,MMCONO,Company
+MITMAS,MMCPUN,Cost unit of measure
+MITMAS,MMCUCD,Currency
+MITMAS,MMCUCS,Currency - sales price
+MITMAS,MMCWUN,Catch weight unit of measure
+MITMAS,MMDCCD,Number of decimal places
+MITMAS,MMDIM1,Measurement 1
+MITMAS,MMDIM2,Measurement 2
+MITMAS,MMDIM3,Measurement 3
+MITMAS,MMDWNO,Drawing number
+MITMAS,MMECMA,ECO managed
+MITMAS,MMECVE,Revision number
+MITMAS,MMFRE3,Statistics identity 3 item
+MITMAS,MMFRE4,Statistics identity 4 item
+MITMAS,MMFUDS,Description 2
+MITMAS,MMITCL,Product group
+MITMAS,MMITDS,Name
+MITMAS,MMITGR,Item group
+MITMAS,MMITNE,Extended item number
+MITMAS,MMITNO,Item number
+MITMAS,MMITTY,Item type
+MITMAS,MMLAMA,Minimum accepted contributn margin ratio
+MITMAS,MMLMDT,Change date
+MITMAS,MMLMTS,Timestamp
+MITMAS,MMMABU,Make/buy code
+MITMAS,MMNEWE,Net weight
+MITMAS,MMNMIT,Non-material type
+MITMAS,MMPDCC,Number of price decimal places
+MITMAS,MMPPDT,Purchase price date
+MITMAS,MMPPUN,Purchase price U/M
+MITMAS,MMPRGP,Procurement group
+MITMAS,MMPROD,Manufacturer
+MITMAS,MMPUCD,Purchase price quantity
+MITMAS,MMPUPR,Purchase price
+MITMAS,MMPUUN,Purchase order U/M
+MITMAS,MMRESP,Responsible
+MITMAS,MMRGDT,Entry date
+MITMAS,MMRGTM,Entry time
+MITMAS,MMSACD,Sales price quantity
+MITMAS,MMSALE,Sales item
+MITMAS,MMSAPR,Sales price
+MITMAS,MMSPDT,Sales price date
+MITMAS,MMSPE1,Specification 1
+MITMAS,MMSPE2,Specification 2
+MITMAS,MMSPE3,Specification 3
+MITMAS,MMSPE4,Specification 4
+MITMAS,MMSPE5,Specification 5
+MITMAS,MMSPUC,Fixed or dynamic sales price U/M
+MITMAS,MMSPUN,Sales price unit of measure
+MITMAS,MMSTAT,Status
+MITMAS,MMSTCD,Inventory accounting
+MITMAS,MMSTUN,Statistical U/M
+MITMAS,MMSUNO,Supplier
+MITMAS,MMTPLI,Template item number
+MITMAS,MMTXID,Text identity
+MITMAS,MMUNMS,Basic unit of measure
+MITPCE,MSABFC,ABC class - frequency
+MITPCE,MSALOC,Allocatable
+MITPCE,MSAUDE,Automatic deletion
+MITPCE,MSCHID,Changed by
+MITPCE,MSCHKC,Check code
+MITPCE,MSCHNO,Change number
+MITPCE,MSCONO,Company
+MITPCE,MSDEST,Status proposal
+MITPCE,MSIDDT,Last receipt date
+MITPCE,MSINDT,Latest physical inventory date
+MITPCE,MSLMDT,Change date
+MITPCE,MSLMTS,Timestamp
+MITPCE,MSNBRL,Number of balance identities
+MITPCE,MSODDT,Last issue date
+MITPCE,MSPISE,Warehouse equipment
+MITPCE,MSRESP,Responsible
+MITPCE,MSRGDT,Entry date
+MITPCE,MSRGTM,Entry time
+MITPCE,MSSLDS,Name
+MITPCE,MSSLDV,Multi-storage location
+MITPCE,MSSLTP,Stock zone
+MITPCE,MSSTFU,Transaction statistics
+MITPCE,MSWHLO,Warehouse
+MITPCE,MSWHLT,Location type
+MITPCE,MSWHSL,Location
+MITPLO,MOACTP,Action message (AM)
+MITPLO,MOALMT,Allocation method
+MITPLO,MOALQT,Allocated quantity - basic U/M
+MITPLO,MOAMRG,Action message registration date
+MITPLO,MOCALI,Include PO in projected on hand balance
+MITPLO,MOCONO,Company
+MITPLO,MOITNO,Item number
+MITPLO,MOLMTS,Timestamp
+MITPLO,MONNDT,Alternate planning date
+MITPLO,MONOAA,Overriding allocation method
+MITPLO,MOORCA,Order category
+MITPLO,MOORDP,Order dependent
+MITPLO,MOPLDT,Planning date
+MITPLO,MOPQTT,Preallocated quantity
+MITPLO,MOPRIO,Priority
+MITPLO,MORFTX,Reference text
+MITPLO,MORIDL,Order line
+MITPLO,MORIDN,Order number
+MITPLO,MORIDX,Line suffix
+MITPLO,MORPRT,Representative transaction
+MITPLO,MOSPMT,Issue method
+MITPLO,MOSTAT,Status
+MITPLO,MOTIHM,Time hours & minutes
+MITPLO,MOTRQT,Transaction quantity - basic U/M
+MITPLO,MOWHLO,Warehouse
+MPDDOC,DOADOB,Document object
+MPDDOC,DOAISB,Document issuer
+MPDDOC,DOASB2,Subject
+MPDDOC,DOASBJ,Subject
+MPDDOC,DOCHID,Changed by
+MPDDOC,DOCHNO,Change number
+MPDDOC,DOCONO,Company
+MPDDOC,DOCOPY,Number of copies
+MPDDOC,DODATE,Entry date
+MPDDOC,DODAUT,Authority document
+MPDDOC,DODEPT,Department
+MPDDOC,DODGRP,Document group
+MPDDOC,DODINT,Document issuer code
+MPDDOC,DODNUM,Document
+MPDDOC,DODODE,Name
+MPDDOC,DODOFM,Document application
+MPDDOC,DODOID,Document identity
+MPDDOC,DODOME,Document media
+MPDDOC,DODOSS,Status - document
+MPDDOC,DODOTY,Document type
+MPDDOC,DOFACI,Facility
+MPDDOC,DOLMDT,Change date
+MPDDOC,DOLMTS,Timestamp
+MPDDOC,DOLNCD,Language
+MPDDOC,DOMDOC,Modification document
+MPDDOC,DORESP,Responsible
+MPDDOC,DORGDT,Entry date
+MPDDOC,DORGTM,Entry time
+MPDDOC,DOTXID,Text identity
+MPDMAT,PMASLA,Accumulated queue time
+MPDMAT,PMCCQT,Quantity on drawing
+MPDMAT,PMCFLN,Configurator line
+MPDMAT,PMCHID,Changed by
+MPDMAT,PMCHNO,Change number
+MPDMAT,PMCNQT,Quantity
+MPDMAT,PMCONO,Company
+MPDMAT,PMCRTM,Critical material
+MPDMAT,PMDCCD,Number of decimal places
+MPDMAT,PMDWPO,Drawing position
+MPDMAT,PMEXCH,Exchange
+MPDMAT,PMFACI,Facility
+MPDMAT,PMFDAT,From date
+MPDMAT,PMFECV,From revision number
+MPDMAT,PMFMT1,Text
+MPDMAT,PMFMT2,Technical reference
+MPDMAT,PMLGTH,Length
+MPDMAT,PMLMDT,Change date
+MPDMAT,PMLMTS,Timestamp
+MPDMAT,PMLWF1,Factor 1
+MPDMAT,PMLWF2,Factor 2
+MPDMAT,PMMDBF,Lead time offset
+MPDMAT,PMMSEQ,Sequence number
+MPDMAT,PMMTNO,Component number
+MPDMAT,PMOPNO,Operation number
+MPDMAT,PMOVOP,Order initiated
+MPDMAT,PMPEUN,Product engineering U/M
+MPDMAT,PMPRNO,Product
+MPDMAT,PMRGDT,Entry date
+MPDMAT,PMRGTM,Entry time
+MPDMAT,PMSDCD,Used in standard
+MPDMAT,PMSIDI,Selection identity - component
+MPDMAT,PMSITI,Selection type - component
+MPDMAT,PMSITQ,Selection type - quantity
+MPDMAT,PMSPMT,Issue method
+MPDMAT,PMSTRT,Product structure type
+MPDMAT,PMSTSQ,Structure sequence number
+MPDMAT,PMTDAT,To date
+MPDMAT,PMTECV,To revision number
+MPDMAT,PMWDTH,Width
+MPDOPE,POAMAO,Additional material offset
+MPDOPE,POASLA,Accumulated queue time
+MPDOPE,POAUIN,Automatic receipt
+MPDOPE,POAURP,Automatic operation reporting
+MPDOPE,POCAMP,Number of labor tickets
+MPDOPE,POCHID,Changed by
+MPDOPE,POCHNO,Change number
+MPDOPE,POCONO,Company
+MPDOPE,POCTCD,Price and time quantity
+MPDOPE,POFACI,Facility
+MPDOPE,POFDAT,From date
+MPDOPE,POFXTI,Fixed time
+MPDOPE,POINWE,Initial weight
+MPDOPE,POLMDT,Change date
+MPDOPE,POLMTS,Timestamp
+MPDOPE,POMFPR,Multiplication factor - manufacturing
+MPDOPE,POMSEQ,Sequence number
+MPDOPE,PONSUN,Next supplier
+MPDOPE,POODBF,Lead time offset
+MPDOPE,POOPCM,Operation cost multiplier
+MPDOPE,POOPDS,Operation description
+MPDOPE,POOPNO,Operation number
+MPDOPE,POOSET,External setup time
+MPDOPE,POPHOP,Phantom operation method
+MPDOPE,POPIPR,Unit price
+MPDOPE,POPITI,Run time
+MPDOPE,POPLGR,Work center
+MPDOPE,POPLTQ,Quantity type - production lot
+MPDOPE,POPRDY,Production days
+MPDOPE,POPRNM,Planned number of machines
+MPDOPE,POPRNO,Product
+MPDOPE,POPRNP,Planned number of workers - run time
+MPDOPE,PORGDT,Entry date
+MPDOPE,PORGTM,Entry time
+MPDOPE,POSDCD,Used in standard
+MPDOPE,POSENP,Planned number of workers - setup
+MPDOPE,POSEPR,Setup price
+MPDOPE,POSETI,Setup time
+MPDOPE,POSLAC,Transport value in days
+MPDOPE,POSLAT,Transit unit of measure/Overlap code
+MPDOPE,POSTRT,Product structure type
+MPDOPE,POSTSQ,Structure sequence number
+MPDOPE,POSUBC,Subcontract control
+MPDOPE,POSUNO,Supplier
+MPDOPE,POTDAT,To date
+MPDOPE,POTXT1,Text line 1
+MPDOPE,POTXT2,Text line 2
+MPDOPE,POWCRF,Time reference
+MPDSUM,PSACDB,Cumulative lead-time offset
+MPDSUM,PSCNQT,Quantity
+MPDSUM,PSCONO,Company
+MPDSUM,PSCRMA,Critical line manufacturing
+MPDSUM,PSCRPU,Critical line purchase
+MPDSUM,PSFACI,Facility
+MPDSUM,PSITTY,Item type
+MPDSUM,PSLEAL,Lead time this level
+MPDSUM,PSMDBF,Lead time offset
+MPDSUM,PSMTNO,Component number
+MPDSUM,PSOPLC,Planning method
+MPDSUM,PSPEUN,Product engineering U/M
+MPDSUM,PSPRN1,Product
+MPDSUM,PSPRNO,Product
+MPDSUM,PSRGDT,Entry date
+MPDSUM,PSRLEV,Relative level
+MPDSUM,PSSATD,Safety time
+MPDSUM,PSSEQN,Sequence number
+MPDSUM,PSSTRT,Product structure type
+MPDSUM,PSSTSQ,Structure sequence number
+MPDSUM,PSTSTM,Timestamp
+MPDWCT,PPACAP,Alternate capacity
+MPDWCT,PPAMAO,Additional material offset
+MPDWCT,PPAPLC,Location
+MPDWCT,PPAUIN,Automatic receipt
+MPDWCT,PPAURP,Automatic operation reporting
+MPDWCT,PPAVEF,Utilization rate
+MPDWCT,PPCAMP,Number of labor tickets
+MPDWCT,PPCAPL,Capacity level
+MPDWCT,PPCHID,Changed by
+MPDWCT,PPCHNO,Change number
+MPDWCT,PPCINA,Create cost accounting transactions
+MPDWCT,PPCOCE,Cost center
+MPDWCT,PPCONO,Company
+MPDWCT,PPCPTY,Capacity per unit and shift
+MPDWCT,PPDAFA,Day factor
+MPDWCT,PPDEPT,Department
+MPDWCT,PPDPLH,Weekly load leveling
+MPDWCT,PPEFCH,Efficiency control
+MPDWCT,PPFACI,Facility
+MPDWCT,PPFXTI,Fixed time
+MPDWCT,PPIIWC,Included in work center
+MPDWCT,PPKANB,Item location issue
+MPDWCT,PPLMDT,Change date
+MPDWCT,PPLMTS,Timestamp
+MPDWCT,PPLVDY,Daily load leveling
+MPDWCT,PPOPDS,Operation description
+MPDWCT,PPOUTO,Output tolerance
+MPDWCT,PPPCAP,Capacity type
+MPDWCT,PPPDCC,Number of price decimal places
+MPDWCT,PPPIDS,Panel identity - MO W/C schedule
+MPDWCT,PPPLGR,Work center
+MPDWCT,PPPLHZ,Planning horizon
+MPDWCT,PPPLNM,Name
+MPDWCT,PPPLOQ,Production lot size
+MPDWCT,PPPLTP,Resource type
+MPDWCT,PPPRNM,Planned number of machines
+MPDWCT,PPPRNP,Planned number of workers - run time
+MPDWCT,PPPSQT,Co-sorting identity
+MPDWCT,PPPTUN,Time U/M
+MPDWCT,PPQUDY,Queue days
+MPDWCT,PPRATP,Production rate display code
+MPDWCT,PPRCUN,Alternate capacity U/M
+MPDWCT,PPREAR,Planning area
+MPDWCT,PPRGDT,Entry date
+MPDWCT,PPRGTM,Entry time
+MPDWCT,PPRWCD,Load reduction method
+MPDWCT,PPSENP,Planned number of workers - setup
+MPDWCT,PPSETI,Setup time
+MPDWCT,PPSHFT,Number of shifts
+MPDWCT,PPSHPA,Shift pattern
+MPDWCT,PPSLAT,Transit unit of measure/Overlap code
+MPDWCT,PPSUNO,Supplier
+MPDWCT,PPTWSL,To location
+MPDWCT,PPTXID,Text identity
+MPDWCT,PPVEOC,Verify operation closing
+MPDWCT,PPWCNM,Number of machines
+MPDWCT,PPWCNP,Number of persons
+MPDWCT,PPWCRE,Work center responsible
+MPDWCT,PPWHLO,Warehouse
+MPDWCT,PPWHSL,Location
+MPHEAD,IAATDT,Last activity date
+MPHEAD,IAAURE,Authorized
+MPHEAD,IABRAM,Order value gross
+MPHEAD,IABUYE,Buyer
+MPHEAD,IACHID,Changed by
+MPHEAD,IACHNO,Change number
+MPHEAD,IACMCO,Media profile
+MPHEAD,IACOAM,Total order cost
+MPHEAD,IACONO,Company
+MPHEAD,IACUCD,Currency
+MPHEAD,IADIVI,Division
+MPHEAD,IADUDT,Due date
+MPHEAD,IADWDT,Requested delivery date
+MPHEAD,IAELNO,Project element
+MPHEAD,IAFACI,Facility
+MPHEAD,IAFUSC,Monitoring activity list
+MPHEAD,IAHDDT,Last day of delivery
+MPHEAD,IALEDT,First printout date
+MPHEAD,IALIDT,Not used
+MPHEAD,IALMDT,Change date
+MPHEAD,IALMTS,Timestamp
+MPHEAD,IALNCD,Language
+MPHEAD,IALRED,Last reply date
+MPHEAD,IAMODL,Delivery method
+MPHEAD,IANOLN,Number of purchase order lines
+MPHEAD,IANTAM,Net order value
+MPHEAD,IAORTY,Order type
+MPHEAD,IAOURR,Our reference number
+MPHEAD,IAOURT,Reference type
+MPHEAD,IAPOPO,Calculator print
+MPHEAD,IAPOTC,Purchase order category
+MPHEAD,IAPOTX,Text identity
+MPHEAD,IAPRLA,Print line amount
+MPHEAD,IAPROJ,Project number
+MPHEAD,IAPRSU,Payee
+MPHEAD,IAPRTX,Text identity
+MPHEAD,IAPUDT,Order date
+MPHEAD,IAPUNO,Purchase order number
+MPHEAD,IAPURC,Requisition by
+MPHEAD,IAPUSL,Lowest status - purchase order
+MPHEAD,IAPUST,Highest status - purchase order
+MPHEAD,IAPYAD,Our invoicing address
+MPHEAD,IAPYME,Payment method - accounts payable
+MPHEAD,IARCDT,Receipt date
+MPHEAD,IARFID,Reference
+MPHEAD,IARGDT,Entry date
+MPHEAD,IARGTM,Entry time
+MPHEAD,IASCDT,Change date highest order status
+MPHEAD,IASLDT,Change date - order status
+MPHEAD,IASUNO,Supplier
+MPHEAD,IATEDL,Delivery terms
+MPHEAD,IATEL1,Terms text
+MPHEAD,IATEPY,Payment terms
+MPHEAD,IATFNO,Facsimile transmission number
+MPHEAD,IATOQT,Total quantity
+MPHEAD,IATXID,Text identity
+MPHEAD,IAWHLO,Warehouse
+MPHEAD,IAYRE1,Your reference
+MPLINE,IBADQA,Advised quantity alternate U/M
+MPLINE,IBATDT,Last activity date
+MPLINE,IBATPR,Attribute pricing rule
+MPLINE,IBBUYE,Buyer
+MPLINE,IBCFD1,Confirmed discount 1
+MPLINE,IBCFD3,Confirmed discount 3
+MPLINE,IBCFQA,Confirmed quantity
+MPLINE,IBCHID,Changed by
+MPLINE,IBCHNO,Change number
+MPLINE,IBCODT,Confirmed delivery date
+MPLINE,IBCONO,Company
+MPLINE,IBCPPR,Confirmed purchase price
+MPLINE,IBCPUC,Confirmed purchase price quantity
+MPLINE,IBCSNO,Customs statistical number
+MPLINE,IBDNDT,Delivery note date
+MPLINE,IBDT4T,Date type
+MPLINE,IBDWDT,Requested delivery date
+MPLINE,IBECDD,Previously confirmed delivery date
+MPLINE,IBECVE,Revision number
+MPLINE,IBEXAT,Monitoring active
+MPLINE,IBFACI,Facility
+MPLINE,IBFUSC,Monitoring activity list
+MPLINE,IBGETY,Generation reference
+MPLINE,IBGRMT,Goods receiving method
+MPLINE,IBIDAT,Invoice date
+MPLINE,IBITNO,Item number
+MPLINE,IBIVQA,Invoiced quantity - alternate U/M
+MPLINE,IBLICC,Line creation code
+MPLINE,IBLMDT,Change date
+MPLINE,IBLMTS,Timestamp
+MPLINE,IBLNAM,Line amount - order currency
+MPLINE,IBLPUD,Latest put-away date
+MPLINE,IBLTPP,Line type
+MPLINE,IBMODL,Delivery method
+MPLINE,IBNPDE,Number of partial deliveries
+MPLINE,IBODI1,Discount 1
+MPLINE,IBODI3,Discount 3
+MPLINE,IBOEND,Flagged as completed
+MPLINE,IBORCO,Country of origin
+MPLINE,IBORQA,Ordered quantity - alternate U/M
+MPLINE,IBORTY,Order type
+MPLINE,IBOURR,Our reference number
+MPLINE,IBOURT,Reference type
+MPLINE,IBPDDT,Deviating confirmed delivery date
+MPLINE,IBPITD,Purchase order item name
+MPLINE,IBPITT,Purchase order item description
+MPLINE,IBPLDT,Planning date
+MPLINE,IBPLPN,Planned order
+MPLINE,IBPNLI,Purchase order line
+MPLINE,IBPNLS,Purchase order line subnumber
+MPLINE,IBPOTC,Purchase order category
+MPLINE,IBPPUN,Purchase price U/M
+MPLINE,IBPRCS,Service process
+MPLINE,IBPRIP,Priority
+MPLINE,IBPROD,Manufacturer
+MPLINE,IBPROJ,Project number
+MPLINE,IBPTCD,Purchase price text
+MPLINE,IBPUCD,Purchase price quantity
+MPLINE,IBPUNO,Purchase order number
+MPLINE,IBPUPR,Purchase price
+MPLINE,IBPURC,Requisition by
+MPLINE,IBPUSL,Lowest status - purchase order
+MPLINE,IBPUST,Highest status - purchase order
+MPLINE,IBPUUN,Purchase order U/M
+MPLINE,IBRCDT,Receipt date
+MPLINE,IBREPP,Representative price
+MPLINE,IBRESF,Responsible for follow-up
+MPLINE,IBRGDT,Entry date
+MPLINE,IBRGTM,Entry time
+MPLINE,IBRORC,Reference order category
+MPLINE,IBRORL,Reference order line
+MPLINE,IBRORN,Reference order number
+MPLINE,IBRVQA,Received quantity
+MPLINE,IBSDQA,Stored quantity
+MPLINE,IBSEQN,Sequence number
+MPLINE,IBSITE,Supplier item number
+MPLINE,IBSORN,Supplier order number
+MPLINE,IBSUAG,Supplier number - agreement
+MPLINE,IBSUDO,Delivery note number
+MPLINE,IBSUFI,Service
+MPLINE,IBSUNO,Supplier
+MPLINE,IBTEDL,Delivery terms
+MPLINE,IBTEL1,Terms text
+MPLINE,IBTIHM,Time hours & minutes
+MPLINE,IBTNQA,Transport notified quantity
+MPLINE,IBTXID,Text identity
+MPLINE,IBUPAV,Update material plan
+MPLINE,IBUPIV,Update item/supplier with purchase price
+MPLINE,IBVDDT,Valid delivery date
+MPLINE,IBVRCD,Business type - trade statistics (TST)
+MPLINE,IBVTCD,VAT code
+MPLINE,IBWHLO,Warehouse
+MPTRNS,ORADID,Address number
+MPTRNS,ORCHID,Changed by
+MPTRNS,ORCHNO,Change number
+MPTRNS,ORCONO,Company
+MPTRNS,ORCUNO,Customer
+MPTRNS,ORD1QT,Standard quantity
+MPTRNS,ORDLIX,Delivery number
+MPTRNS,ORDLQT,Delivered quantity - basic U/M
+MPTRNS,ORDLRM,Remark
+MPTRNS,ORFRCM,Actual quantity in free unit
+MPTRNS,ORGWTM,Actual gross weight
+MPTRNS,ORINOU,Direction
+MPTRNS,ORLMDT,Change date
+MPTRNS,ORLMTS,Timestamp
+MPTRNS,ORNEWE,Net weight
+MPTRNS,ORNTWM,Actual net weight
+MPTRNS,ORPACH,Packaging height
+MPTRNS,ORPACL,Packaging length
+MPTRNS,ORPACS,Package status
+MPTRNS,ORPACT,Packaging
+MPTRNS,ORPACW,Packaging width
+MPTRNS,ORPAN1,Package alias 1
+MPTRNS,ORPAN2,Package alias 2
+MPTRNS,ORPAN3,Package alias 3
+MPTRNS,ORPANR,Package number
+MPTRNS,ORPCON,Package content
+MPTRNS,ORPISS,Picking status
+MPTRNS,ORRGDT,Entry date
+MPTRNS,ORRGTM,Entry time
+MPTRNS,ORSORT,Sort value
+MPTRNS,ORSSCC,SSCC number
+MPTRNS,ORTEPA,Packaging terms
+MPTRNS,ORVLME,Estimated volume
+MPTRNS,ORVLMM,Actual volume
+MPTRNS,ORVOGR,Gross volume
+MPTRNS,ORWHLO,Warehouse
+MWOHED,VHALMA,Allow alternate material on MO
+MWOHED,VHBDCD,Explosion
+MWOHED,VHCHID,Changed by
+MWOHED,VHCHNO,Change number
+MWOHED,VHCOFA,Conversion factor
+MWOHED,VHCONO,Company
+MWOHED,VHDIVI,Division
+MWOHED,VHDMCF,Conversion form
+MWOHED,VHDWNO,Drawing number
+MWOHED,VHECVE,Revision number
+MWOHED,VHELNO,Project element
+MWOHED,VHFACI,Facility
+MWOHED,VHFFID,Original finish date
+MWOHED,VHFIDT,Finish date
+MWOHED,VHFSTD,Original start date
+MWOHED,VHGETP,Origin
+MWOHED,VHHSDT,Change date - highest operation status
+MWOHED,VHITNO,Item number
+MWOHED,VHLEAL,Lead time this level
+MWOHED,VHLEVL,Lowest level
+MWOHED,VHLMDT,Change date
+MWOHED,VHLMTS,Timestamp
+MWOHED,VHLTRE,Share of lead time
+MWOHED,VHLVSQ,Level sequence
+MWOHED,VHMAQA,Manufactured quantity
+MWOHED,VHMAQT,Manufactured quantity
+MWOHED,VHMAUN,Manufacturing U/M
+MWOHED,VHMFHL,MO number highest level
+MWOHED,VHMFNO,Manufacturing order number
+MWOHED,VHMFTI,Finish time
+MWOHED,VHMSTI,Start time
+MWOHED,VHNUC1,Number of put-away cards
+MWOHED,VHNUC2,Number of material requisitions
+MWOHED,VHNUC3,Number of labor tickets
+MWOHED,VHNUC4,Number of shop travelers
+MWOHED,VHNUC5,Number of routing cards
+MWOHED,VHNUC6,Number of picking lists
+MWOHED,VHNUC7,Number of design documents
+MWOHED,VHNURP,Number of times replanned
+MWOHED,VHOROA,Original ordered qty - alt U/M
+MWOHED,VHOROQ,Original ordered quantity
+MWOHED,VHORQA,Ordered quantity - alternate U/M
+MWOHED,VHORQT,Ordered quantity - basic U/M
+MWOHED,VHORTY,Order type
+MWOHED,VHPCDO,Costing performed
+MWOHED,VHPRHL,Product number highest level
+MWOHED,VHPRIO,Priority
+MWOHED,VHPRNO,Product
+MWOHED,VHPROJ,Project number
+MWOHED,VHREFD,Actual finish date
+MWOHED,VHREND,Manual completion flag
+MWOHED,VHRESP,Responsible
+MWOHED,VHRGDT,Entry date
+MWOHED,VHRGTM,Entry time
+MWOHED,VHRORL,Reference order line
+MWOHED,VHRORN,Reference order number
+MWOHED,VHRORX,Line suffix
+MWOHED,VHRPDT,Reporting date
+MWOHED,VHRSDT,Actual start date
+MWOHED,VHRVQA,Received quantity
+MWOHED,VHRVQT,Received quantity
+MWOHED,VHSCEX,Subcontracting exists
+MWOHED,VHSCHN,Schedule number
+MWOHED,VHSLDT,Change date - order status
+MWOHED,VHSTDT,Start date
+MWOHED,VHSTRT,Product structure type
+MWOHED,VHTSDA,App timestamp
+MWOHED,VHTSTE,App timestamp
+MWOHED,VHTXID,Text identity
+MWOHED,VHTXT1,Text line 1
+MWOHED,VHTXT2,Text line 2
+MWOHED,VHWHHS,Highest operation status - order
+MWOHED,VHWHLO,Warehouse
+MWOHED,VHWHSL,Location
+MWOHED,VHWHST,Status - manufacturing order
+MWOHED,VHWMST,Material status
+MWOHED,VHWODP,Order documents printed
+MWOHED,VHWOSQ,Reporting number
+MWOPTR,DJCHID,Changed by
+MWOPTR,DJCHNO,Change number
+MWOPTR,DJCONO,Company
+MWOPTR,DJDEPT,Department
+MWOPTR,DJDPIS,Date transferred to W/C statistic
+MWOPTR,DJEMNO,Employee number
+MWOPTR,DJFACI,Facility
+MWOPTR,DJFIDT,Finish date
+MWOPTR,DJFXTI,Fixed time
+MWOPTR,DJLMDT,Change date
+MWOPTR,DJLMTS,Timestamp
+MWOPTR,DJMAQA,Manufactured quantity
+MWOPTR,DJMAQT,Manufactured quantity
+MWOPTR,DJMFNO,Manufacturing order number
+MWOPTR,DJOPNO,Operation number
+MWOPTR,DJPCTP,Costing type
+MWOPTR,DJPIPR,Unit price
+MWOPTR,DJPLGR,Work center
+MWOPTR,DJPRNO,Product
+MWOPTR,DJPRNP,Planned number of workers - run time
+MWOPTR,DJREAR,Planning area
+MWOPTR,DJREND,Manual completion flag
+MWOPTR,DJRGDT,Entry date
+MWOPTR,DJRGTM,Entry time
+MWOPTR,DJROID,Operation reporting identity
+MWOPTR,DJSCQA,Scrapped quantity
+MWOPTR,DJSCQT,Scrapped quantity
+MWOPTR,DJSCRE,Rejection reason
+MWOPTR,DJSENP,Planned number of workers - setup
+MWOPTR,DJSTDT,Start date
+MWOPTR,DJSUNO,Supplier
+MWOPTR,DJTMSX,Time suffix
+MWOPTR,DJTRDT,Transaction date
+MWOPTR,DJTRTM,Transaction time
+MWOPTR,DJUMAS,Used labor setup time
+MWOPTR,DJUMAT,Used labor run time
+MWOPTR,DJUPID,Registration identity
+MWOPTR,DJUPIT,Used machine run time
+MWOPTR,DJUSET,Used machine setup time
+MWOPTR,DJWOSQ,Reporting number
+OCUSAD,OPADID,Address number
+OCUSAD,OPADRT,Address type
+OCUSAD,OPBCKO,Backorder
+OCUSAD,OPCHID,Changed by
+OCUSAD,OPCHNO,Change number
+OCUSAD,OPCONO,Company
+OCUSAD,OPCSCD,Country
+OCUSAD,OPCUA1,Address line 1
+OCUSAD,OPCUA2,Address line 2
+OCUSAD,OPCUA3,Address line 3
+OCUSAD,OPCUA4,Address line 4
+OCUSAD,OPCUNM,Name
+OCUSAD,OPCUNO,Customer
+OCUSAD,OPECAR,State
+OCUSAD,OPEDES,Place
+OCUSAD,OPLMDT,Change date
+OCUSAD,OPLMTS,Timestamp
+OCUSAD,OPMODL,Delivery method
+OCUSAD,OPPADL,Partial delivery
+OCUSAD,OPPHNO,Telephone number 1
+OCUSAD,OPPONO,Postal code
+OCUSAD,OPPRIO,Priority
+OCUSAD,OPRGDT,Entry date
+OCUSAD,OPRGTM,Entry time
+OCUSAD,OPSPLE,Standard point location code
+OCUSAD,OPTEDL,Delivery terms
+OCUSAD,OPTEL2,Terms text
+OCUSAD,OPTFNO,Facsimile transmission number
+OCUSAD,OPTOWN,City
+OCUSAD,OPVRNO,VAT registration number
+OCUSAD,OPYREF,Your reference 1
+OCUSMA,OKAICD,Summary invoice
+OCUSMA,OKALCU,Search key
+OCUSMA,OKATPR,Attribute pricing rule
+OCUSMA,OKBCKO,Backorder
+OCUSMA,OKBLCD,Customer stop
+OCUSMA,OKBLPR,Payment reminder code
+OCUSMA,OKBOCD,Backorder permitted
+OCUSMA,OKCFC1,User-defined field 1 - customer
+OCUSMA,OKCFC2,User-defined field 2 - customer
+OCUSMA,OKCFC5,User-defined field 5 - customer
+OCUSMA,OKCFC7,User-defined field 7 - customer
+OCUSMA,OKCHID,Changed by
+OCUSMA,OKCHNO,Change number
+OCUSMA,OKCONO,Company
+OCUSMA,OKCORG,Organization number 1
+OCUSMA,OKCRL2,Credit limit 2
+OCUSMA,OKCRTP,Exchange rate type
+OCUSMA,OKCSCD,Country
+OCUSMA,OKCUA1,Address line 1
+OCUSMA,OKCUA2,Address line 2
+OCUSMA,OKCUA3,Address line 3
+OCUSMA,OKCUA4,Address line 4
+OCUSMA,OKCUCD,Currency
+OCUSMA,OKCUCL,Customer group
+OCUSMA,OKCUNM,Name
+OCUSMA,OKCUNO,Customer
+OCUSMA,OKDISY,Discount model
+OCUSMA,OKDTE1,Change date - credit limit 1
+OCUSMA,OKDTE2,Change date - credit limit 2
+OCUSMA,OKDTE3,Change date - credit limit 3
+OCUSMA,OKDTFM,Date format
+OCUSMA,OKDUCD,Due date base
+OCUSMA,OKECAR,State
+OCUSMA,OKEDES,Place
+OCUSMA,OKEDIT,Date editing
+OCUSMA,OKFACI,Facility
+OCUSMA,OKFRE1,Statistics identity 1 customer
+OCUSMA,OKFRE2,Statistics identity 2 customer
+OCUSMA,OKLHCD,Language
+OCUSMA,OKLIDT,Not used
+OCUSMA,OKLMDT,Change date
+OCUSMA,OKLMTS,Timestamp
+OCUSMA,OKMODL,Delivery method
+OCUSMA,OKOREF,Our reference
+OCUSMA,OKORTP,Customer order type
+OCUSMA,OKOT86,External prices
+OCUSMA,OKPADL,Partial delivery
+OCUSMA,OKPHN2,Telephone number 2
+OCUSMA,OKPHNO,Telephone number 1
+OCUSMA,OKPLTB,Price list table
+OCUSMA,OKPONO,Postal code
+OCUSMA,OKPRDL,Print delivery information
+OCUSMA,OKPRIC,Price printout
+OCUSMA,OKPRIO,Priority
+OCUSMA,OKPRVG,Commission group
+OCUSMA,OKPYCD,Payment method - accounts receivable
+OCUSMA,OKPYOP,Search path - payer
+OCUSMA,OKQUCK,Quotation check
+OCUSMA,OKRESP,Responsible
+OCUSMA,OKRGDT,Entry date
+OCUSMA,OKRGTM,Entry time
+OCUSMA,OKRMCT,Payment reminder rule
+OCUSMA,OKSDST,District
+OCUSMA,OKSMCD,Salesperson
+OCUSMA,OKSTAT,Status
+OCUSMA,OKSTMS,Statement code
+OCUSMA,OKTBLG,Not used
+OCUSMA,OKTDIN,Not used
+OCUSMA,OKTEDL,Delivery terms
+OCUSMA,OKTEPA,Packaging terms
+OCUSMA,OKTEPY,Payment terms
+OCUSMA,OKTFNO,Facsimile transmission number
+OCUSMA,OKTOIN,Not used
+OCUSMA,OKTOWN,City
+OCUSMA,OKTXAP,Tax applicable
+OCUSMA,OKTXID,Text identity
+OCUSMA,OKUSR1,Credit limit 1 changed by
+OCUSMA,OKUSR2,Credit limit 2 changed by
+OCUSMA,OKUSR3,Credit limit 3 changed by
+OCUSMA,OKVRNO,VAT registration number
+OCUSMA,OKVTCD,VAT code
+OCUSMA,OKWHLO,Warehouse
+OCUSMA,OKYRE2,Your reference 2
+OCUSMA,OKYREF,Your reference 1
+OOHEAD,OAADID,Address number
+OOHEAD,OAAICD,Summary invoice
+OOHEAD,OAARAT,Exchange rate
+OOHEAD,OABLRO,Backlog rounding
+OOHEAD,OABRAM,Order value gross
+OOHEAD,OABRLA,Total order value gross
+OOHEAD,OACHID,Changed by
+OOHEAD,OACHNO,Change number
+OOHEAD,OACOAM,Total order cost
+OOHEAD,OACONO,Company
+OOHEAD,OACRTP,Exchange rate type
+OOHEAD,OACUCD,Currency
+OOHEAD,OACUDT,Customer´s purchase order date
+OOHEAD,OACUNO,Customer
+OOHEAD,OACUOR,Customer´s order number
+OOHEAD,OADCCD,Number of decimal places
+OOHEAD,OADECU,Delivery customer
+OOHEAD,OADICD,Discount origin
+OOHEAD,OADISY,Discount model
+OOHEAD,OADIVI,Division
+OOHEAD,OADMCU,Currency conversion method
+OOHEAD,OADSTX,Description
+OOHEAD,OAFACI,Facility
+OOHEAD,OAFDED,First delivery date
+OOHEAD,OAFECN,Future rate agreement number
+OOHEAD,OAFRE1,Statistics identity 1 customer
+OOHEAD,OAHOCD,Order entry in progress
+OOHEAD,OAINRC,Invoice recipient
+OOHEAD,OAJNA,Job name
+OOHEAD,OAJNU,Job number
+OOHEAD,OALDED,Last delivery
+OOHEAD,OALMDT,Change date
+OOHEAD,OALMTS,Timestamp
+OOHEAD,OALNCD,Language
+OOHEAD,OALOCD,Local currency
+OOHEAD,OAMODL,Delivery method
+OOHEAD,OANBNS,Number of noninventory order lines
+OOHEAD,OANEWE,Net weight
+OOHEAD,OANTAM,Net order value
+OOHEAD,OANTLA,Total order value net
+OOHEAD,OAOFNO,Quotation number
+OOHEAD,OAOPRI,Priority
+OOHEAD,OAORDT,Order date
+OOHEAD,OAOREF,Our reference
+OOHEAD,OAORNO,Customer order number
+OOHEAD,OAORSL,Lowest status - customer order
+OOHEAD,OAORST,Highest status - customer order
+OOHEAD,OAORTP,Customer order type
+OOHEAD,OAOT38,Update order received statistics
+OOHEAD,OAOTDP,Order total discount - percentage
+OOHEAD,OAPLTB,Price list table
+OOHEAD,OAPOTX,Text identity
+OOHEAD,OAPROJ,Project number
+OOHEAD,OAPRTX,Text identity
+OOHEAD,OAPYCD,Payment method - accounts receivable
+OOHEAD,OAPYNO,Payer
+OOHEAD,OARESP,Responsible
+OOHEAD,OARGDT,Entry date
+OOHEAD,OARGTM,Entry time
+OOHEAD,OARLDT,Requested delivery date
+OOHEAD,OARLDZ,Requested delivery date
+OOHEAD,OARLHM,Requested delivery time
+OOHEAD,OARLHZ,Requested delivery time
+OOHEAD,OARODN,Route departure
+OOHEAD,OAROUT,Route
+OOHEAD,OASMCD,Salesperson
+OOHEAD,OASPLM,Supply model
+OOHEAD,OATEDL,Delivery terms
+OOHEAD,OATEL2,Terms text
+OOHEAD,OATEPA,Packaging terms
+OOHEAD,OATEPY,Payment terms
+OOHEAD,OATIZO,Time zone
+OOHEAD,OATXAP,Tax applicable
+OOHEAD,OATXID,Text identity
+OOHEAD,OAVRCD,Business type - trade statistics (TST)
+OOHEAD,OAVTCD,VAT code
+OOHEAD,OAWHLO,Warehouse
+OOHEAD,OAYREF,Your reference 1
+OOLINE,OBADID,Address number
+OOLINE,OBAETY,Order line address type
+OOLINE,OBALQA,Allocated quantity - alternate U/M
+OOLINE,OBALQT,Allocated quantity - basic U/M
+OOLINE,OBALUN,Alternate U/M
+OOLINE,OBATPR,Attribute pricing rule
+OOLINE,OBCBSM,Created by supply model
+OOLINE,OBCHID,Changed by
+OOLINE,OBCHNO,Change number
+OOLINE,OBCINA,Create cost accounting transactions
+OOLINE,OBCODT,Confirmed delivery date
+OOLINE,OBCODZ,Confirmed delivery date
+OOLINE,OBCOFA,Conversion factor
+OOLINE,OBCOFS,Conversion factor - sales price U/M
+OOLINE,OBCOHM,Confirmed delivery time
+OOLINE,OBCOHZ,Confirmed delivery time
+OOLINE,OBCONO,Company
+OOLINE,OBCUNO,Customer
+OOLINE,OBCUOR,Customer´s order number
+OOLINE,OBDECU,Delivery customer
+OOLINE,OBDEFC,Demand factor
+OOLINE,OBDIC1,Status - discount
+OOLINE,OBDIC2,Status - discount
+OOLINE,OBDIC3,Status - discount
+OOLINE,OBDIP1,Discount 1
+OOLINE,OBDIP3,Discount 3
+OOLINE,OBDIVI,Division
+OOLINE,OBDLQA,Delivered quantity - alternate U/M
+OOLINE,OBDLQT,Delivered quantity - basic U/M
+OOLINE,OBDMCF,Conversion form
+OOLINE,OBDMCS,Conversion method - sales price U/M
+OOLINE,OBDSDT,Departure date
+OOLINE,OBDSHM,Departure time
+OOLINE,OBDSTX,Description
+OOLINE,OBDWDT,Requested delivery date
+OOLINE,OBDWDZ,Requested delivery date
+OOLINE,OBDWHM,Requested delivery time
+OOLINE,OBDWHZ,Requested delivery time
+OOLINE,OBFACI,Facility
+OOLINE,OBFDED,First delivery date
+OOLINE,OBITDS,Name
+OOLINE,OBITNO,Item number
+OOLINE,OBIVQA,Invoiced quantity - alternate U/M
+OOLINE,OBIVQT,Invoiced quantity - basic U/M
+OOLINE,OBLDED,Last delivery
+OOLINE,OBLMDT,Change date
+OOLINE,OBLMTS,Timestamp
+OOLINE,OBLNA2,Line amount 2
+OOLINE,OBLNAM,Line amount - order currency
+OOLINE,OBMODL,Delivery method
+OOLINE,OBNEPR,Net price
+OOLINE,OBNOAA,Overriding allocation method
+OOLINE,OBORCO,Country of origin
+OOLINE,OBORNO,Customer order number
+OOLINE,OBORQA,Ordered quantity - alternate U/M
+OOLINE,OBORQT,Ordered quantity - basic U/M
+OOLINE,OBORST,Highest status - customer order
+OOLINE,OBORTY,Order type
+OOLINE,OBPCOF,Price adjustment factor
+OOLINE,OBPLDT,Planning date
+OOLINE,OBPLHM,Planning time
+OOLINE,OBPLQA,Picking list quantity - alternate U/M
+OOLINE,OBPLQT,Picking list quantity - basic U/M
+OOLINE,OBPMOR,Payment terms origin
+OOLINE,OBPONR,Order line number
+OOLINE,OBPOTX,Text identity
+OOLINE,OBPRCH,Price adjustment line
+OOLINE,OBPRIO,Priority
+OOLINE,OBPRMO,Price origin
+OOLINE,OBPRNO,Product
+OOLINE,OBPROJ,Project number
+OOLINE,OBPRRF,Price list
+OOLINE,OBPRTX,Text identity
+OOLINE,OBRGDT,Entry date
+OOLINE,OBRGTM,Entry time
+OOLINE,OBRNQA,Remaining quantity - alternate U/M
+OOLINE,OBRNQT,Remaining quantity - basic U/M
+OOLINE,OBRODN,Route departure
+OOLINE,OBROUT,Route
+OOLINE,OBSACD,Sales price quantity
+OOLINE,OBSAPR,Sales price
+OOLINE,OBSMCD,Salesperson
+OOLINE,OBSPUN,Sales price unit of measure
+OOLINE,OBSTCD,Inventory accounting
+OOLINE,OBTEDL,Delivery terms
+OOLINE,OBTEDS,Description 1
+OOLINE,OBTEL2,Terms text
+OOLINE,OBTEPA,Packaging terms
+OOLINE,OBTEPY,Payment terms
+OOLINE,OBTIZO,Time zone
+OOLINE,OBUCCD,Standard cost code
+OOLINE,OBUCOS,Cost price
+OOLINE,OBUPAV,Update material plan
+OOLINE,OBVRCD,Business type - trade statistics (TST)
+OOLINE,OBVTCD,VAT code
+OOLINE,OBWHLO,Warehouse
+OOLINE,OBWHSL,Location

@@ -1,0 +1,28 @@
+SELECT 
+	MOCONO as "Company",
+	MOWHLO as "Warehouse",
+	MOITNO as "Item number",
+	MOPLDT as "Planning date",
+	MOTIHM as "Time hours & minutes",
+	MONNDT as "Alternate planning date",
+	MOSTAT as "Status",
+	MOPRIO as "Priority",
+	MOORCA as "Order category",
+	MORIDN as "Order number",
+	MORIDL as "Order line",
+	MORFTX as "Reference text",
+	MORPRT as "Representative transaction",
+	MOTRQT as "Transaction quantity - basic U/M",
+	MOALQT as "Allocated quantity - basic U/M",
+	MOPQTT as "Preallocated quantity",
+	MONOAA as "Overriding allocation method",
+	MOALMT as "Allocation method",
+	MOSPMT as "Issue method",
+	MOORDP as "Order dependent",
+	MOACTP as "Action message (AM)",
+	MOAMRG as "Action message registration date",
+	MOCALI as "Include PO in projected on hand balance",
+	MORIDX as "Line suffix",
+	MOLMTS as "Timestamp"
+FROM
+	MITPLO

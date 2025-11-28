@@ -1,0 +1,27 @@
+SELECT 
+	KUCONO as "Company",
+	KUFACI as "Facility",
+	KUITNO as "Item number",
+	KUSTRT as "Product structure type",
+	KUVASE as "Configuration identity",
+	KUPCTP as "Costing type",
+	KUPCDT as "Costing date",
+	KUOPNO as "Operation number",
+	KUMSEQ as "Sequence number",
+	KUMTNO as "Component number",
+	KUCNQT as "Quantity",
+	KUDCCD as "Number of decimal places",
+	KUBYPR as "By/co-product code",
+	KUPEUN as "Product engineering U/M",
+	KUASWQ as "Cumulative setup scrap",
+	KUSTSQ as "Structure sequence number",
+	KUWHLO as "Warehouse",
+	KUSIQT as "Standard issued quantity",
+	KURGDT as "Entry date",
+	KURGTM as "Entry time",
+	KULMDT as "Change date",
+	KUCHID as "Changed by",
+	KULMTS as "Timestamp",
+	KUCSQT as "Cost quantity"
+FROM
+	MCBOMS

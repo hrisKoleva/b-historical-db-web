@@ -1,0 +1,26 @@
+SELECT 
+	OSCONO as "Company",
+	OSINOU as "Direction",
+	OSDLIX as "Delivery number",
+	OSPANR as "Package number",
+	OSWHLO as "Warehouse",
+	OSRORC as "Reference order category",
+	OSRIDN as "Order number",
+	OSRIDL as "Order line",
+	OSITNO as "Item number",
+	OSDLQT as "Delivered quantity - basic U/M",
+	OSRCQT as "Receipt quantity",
+	OSOEND as "Flagged as completed",
+	OSNEWE as "Net weight",
+	OSD1QT as "Standard quantity",
+	OSCUOR as "Customer´s order number",
+	OSDLQA as "Delivered quantity - alternate U/M",
+	OSRGDT as "Entry date",
+	OSRGTM as "Entry time",
+	OSLMDT as "Change date",
+	OSCHNO as "Change number",
+	OSCHID as "Changed by",
+	OSLMTS as "Timestamp",
+	OSSTAT as "Status"
+FROM
+	MFTRNS

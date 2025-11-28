@@ -1,0 +1,27 @@
+SELECT 
+	SHBJNO as "Job number",
+	SHPRTF as "Printer file",
+	SHSEQN as "Sequence number",
+	SHMEDC as "Media",
+	SHFMTP as "Form",
+	SHCOPY as "Number of copies",
+	SHTFT1 as "Fax text 1",
+	SHFLRN as "Folder name",
+	SHPAFD as "File path",
+	SHFSUX as "File suffix",
+	SHFDES as "Data",
+	SHDEV as "Printer",
+	SHTOMA as "To e-mail address",
+	SHFRMA as "From e-mail address",
+	SHCCMA as "Copy to e-mail address",
+	SHSUBJ as "Subject",
+	SHNOTE as "Note",
+	SHMARI as "Market identification",
+	SHRGDT as "Entry date",
+	SHRGTM as "Entry time",
+	SHLMDT as "Change date",
+	SHCHID as "Changed by",
+	SHARCH as "Archive",
+	SHFIET as "File type"
+FROM
+	CSFOUT

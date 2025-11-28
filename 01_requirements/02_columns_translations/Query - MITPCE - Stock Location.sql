@@ -1,0 +1,28 @@
+SELECT 
+	MSCONO as "Company",
+	MSWHLO as "Warehouse",
+	MSWHSL as "Location",
+	MSSLDS as "Name",
+	MSSLTP as "Stock zone",
+	MSRESP as "Responsible",
+	MSSLDV as "Multi-storage location",
+	MSALOC as "Allocatable",
+	MSDEST as "Status proposal",
+	MSAUDE as "Automatic deletion",
+	MSIDDT as "Last receipt date",
+	MSODDT as "Last issue date",
+	MSNBRL as "Number of balance identities",
+	MSPISE as "Warehouse equipment",
+	MSABFC as "ABC class - frequency",
+	MSWHLT as "Location type",
+	MSSTFU as "Transaction statistics",
+	MSCHKC as "Check code",
+	MSRGDT as "Entry date",
+	MSRGTM as "Entry time",
+	MSLMDT as "Change date",
+	MSCHNO as "Change number",
+	MSCHID as "Changed by",
+	MSLMTS as "Timestamp",
+	MSINDT as "Latest physical inventory date"
+FROM
+	MITPCE

@@ -1,0 +1,28 @@
+SELECT 
+	IDCONO as "Company",
+	IDSUNO as "Supplier",
+	IDSUTY as "Supplier type",
+	IDSUNM as "Supplier name",
+	IDALSU as "Search key",
+	IDSTAT as "Status",
+	IDCORG as "Organization number 1",
+	IDCOR2 as "Organization number 2",
+	IDLNCD as "Language",
+	IDPHNO as "Telephone number 1",
+	IDPHN2 as "Telephone number 2",
+	IDTLNO as "Telex number",
+	IDTFNO as "Facsimile transmission number",
+	IDCSCD as "Country",
+	IDDTFM as "Date format",
+	IDEDIT as "Date editing",
+	IDVRNO as "VAT registration number",
+	IDSUAL as "Supplier alternate identity",
+	IDDESV as "Alternate lang for option description",
+	IDRGDT as "Entry date",
+	IDRGTM as "Entry time",
+	IDLMDT as "Change date",
+	IDCHNO as "Change number",
+	IDCHID as "Changed by",
+	IDLMTS as "Timestamp"
+FROM
+	CIDMAS

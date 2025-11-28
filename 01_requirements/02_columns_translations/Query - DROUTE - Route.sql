@@ -1,0 +1,25 @@
+SELECT 
+	DRCONO as "Company",
+	DRRUTP as "Route type",
+	DRROUT as "Route",
+	DRTX40 as "Description",
+	DRTX15 as "Name",
+	DRRESP as "Responsible",
+	DRSDES as "Place of loading",
+	DRSILH as "Stipulated internal lead time - hours",
+	DRDLMC as "Manual shipment scheduling allowed",
+	DRDLAC as "Ignore deadline when connecting dely no",
+	DRACNC as "Automatic connection to shipment",
+	DRMADE as "Time of departure",
+	DRMACA as "Transportation equipment",
+	DRFWNO as "Forwarding agent",
+	DRTRCA as "Transportation equipment",
+	DRMODL as "Delivery method",
+	DRRGDT as "Entry date",
+	DRRGTM as "Entry time",
+	DRLMDT as "Change date",
+	DRCHNO as "Change number",
+	DRCHID as "Changed by",
+	DRLMTS as "Timestamp"
+FROM
+	DROUTE
