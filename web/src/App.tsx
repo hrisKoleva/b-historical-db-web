@@ -74,6 +74,10 @@ const App = () => {
   const [status, setStatus] = useState<FetchState>('idle');
   const [error, setError] = useState<string | null>(null);
 
+  const redirectToLogin = () => {
+    window.location.href = '/.auth/login/aad?post_login_redirect_uri=/';
+  };
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -83,8 +87,19 @@ const App = () => {
 
       try {
         const response = await fetch(buildSearchQuery(currentQuery, page), {
-          signal: controller.signal
+          signal: controller.signal,
+          credentials: 'include',
+          headers: {
+            // Ensures Azure App Service Easy Auth returns HTTP 401/403 instead of a 302 redirect,
+            // allowing us to detect an expired session.
+            'X-Requested-With': 'XMLHttpRequest'
+          }
         });
+
+        if (response.status === 401 || response.status === 403 || response.type === 'opaqueredirect') {
+          redirectToLogin();
+          return;
+        }
 
         if (!response.ok) {
           throw new Error('We could not load customers right now. Please try again.');
@@ -96,6 +111,10 @@ const App = () => {
         setStatus('success');
       } catch (cause) {
         if (controller.signal.aborted) {
+          return;
+        }
+        if (cause instanceof TypeError) {
+          redirectToLogin();
           return;
         }
         const message =

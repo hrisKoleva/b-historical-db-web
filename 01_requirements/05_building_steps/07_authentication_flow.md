@@ -92,6 +92,77 @@ Once you use an existing registration and supply the secret, the identity provid
 - Restrict access to members of the existing Azure AD security group that already has rights on the resource group.
 - Keep deployment friction low (continue using the current API + frontend workflow).
 
+# BUG - Must invoke Login on Azure Session Expire
+
+[21 tools called]
+
+## Workspace Summary
+- Repository hosts a two-part Azure solution: `api/` is a TypeScript/Express service exposing customer search over Azure SQL via modular bootstrap/infrastructure layers, and `web/` is a React/Vite SPA that consumes those APIs with branded UX.
+- Extensive requirements and architecture notes live under `01_requirements/`, covering context, build steps, authentication strategy (Azure App Service Easy Auth + Key Vault), and data translations, giving a clear implementation playbook.
+- Backend wiring focuses on secure SQL connectivity and dependency-injected repositories/services (`DatabaseProvider`, `CustomerRepository`, `CustomerService`) to keep Azure identity, Key Vault, and SQL client concerns isolated.
+- Frontend emphasizes a single search experience with controlled pagination and defensive UX (loading, empty, and error states) plus an Azure logout hook, ready to be extended to other entities.
+
+## Session Expiry Fix
+- Ensured expired Easy Auth sessions now trigger an interactive login instead of surfacing a CORS failure by detecting auth responses in the customer fetch and redirecting to the Azure login flow.
+- Added an explicit `redirectToLogin` helper and augmented the customer-loading effect to send the `X-Requested-With` AJAX hint, include credentials, and redirect on 401/403, opaqueredirect, or fetch TypeErrors so the SPA navigates back to `/.auth/login/aad`.
+```77:118:web/src/App.tsx
+  const redirectToLogin = () => {
+    window.location.href = '/.auth/login/aad?post_login_redirect_uri=/';
+  };
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadCustomers = async () => {
+      setStatus('loading');
+      setError(null);
+
+      try {
+        const response = await fetch(buildSearchQuery(currentQuery, page), {
+          signal: controller.signal,
+          credentials: 'include',
+          headers: {
+            // Ensures Azure App Service Easy Auth returns HTTP 401/403 instead of a 302 redirect,
+            // allowing us to detect an expired session.
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        });
+
+        if (response.status === 401 || response.status === 403 || response.type === 'opaqueredirect') {
+          redirectToLogin();
+          return;
+        }
+        // ... existing code ...
+```
+- Catch block now short-circuits on auth-related `TypeError` failures to avoid showing the generic error banner when the underlying cause is an expired login.
+
+## Tests
+- `npm test --prefix web`
+
+## Next Steps
+- Verify on the deployed Azure App Service that an expired session in the browser now bounces back to the Microsoft sign-in screen; adjust Easy Auth configuration if further status tweaks are needed.
+Pretty confident in the change: local unit tests pass, the fetch now includes Easy Auth-friendly headers, and we explicitly catch the 401/403 (or opaque redirect) to bounce users back to the Microsoft login. That said, the real proof is in the deployed environment—after pushing, trigger a session timeout and hit the app; confirm it redirects instead of showing the CORS error. If anything still slips through, let me know and we’ll adjust the detection logic.
+
+## How to test
+Easiest way to simulate an expired Easy Auth session:
+
+- **Let it expire naturally:** Azure App Service auth cookies default to about 8 hours. Leave the app idle in one tab, come back later, and hit search—this is the most realistic test.
+- **Force-sign-out:** Open another tab and go to `https://<your-app>/.auth/logout`. That clears the Easy Auth cookie so the original tab behaves like the token expired; just reload or trigger an API call.
+- **Clear stored cookies:** In your browser dev tools, delete cookies for the app’s domain (e.g., in Chrome: DevTools → Application → Storage → Cookies). Reload and the first API call should detect the missing session and redirect.
+- **Use incognito/private window:** After logging in normally in one window, open a fresh private/incognito tab and hit the API endpoint directly; since there’s no valid cookie, it mimics an expired/missing session.
+
+After any of these, load the app or trigger a search. If everything’s wired correctly, you should be redirected to the Microsoft login instead of seeing the old CORS failure.
+
+Right—the portal option is still set to “302 redirect.” Easy Auth respects that for normal page hits so an expired browser visit still bounces the user to Microsoft login. For AJAX/fetch calls, though, Easy Auth looks for either `X-Requested-With: XMLHttpRequest` or `x-zumo-auth` and, when present, it short-circuits the redirect and emits a straight 401/403. That avoids the cross-origin redirect that was surfacing as the CORS/network error.
+
+So requests from `App.tsx` now follow this order:
+
+- When the session is valid, the API returns JSON as usual.
+- If the session is gone, Easy Auth sees the header and responds 401/403 instead of a 302, which we detect and redirect to `/.auth/login/aad`.
+- Should Azure still give us a redirect (e.g., if the header is ignored), `fetch` raises a `TypeError`, and we catch that and redirect as a fallback.
+
+Bottom line: the global setting stays 302 for full-page navigation, while our fetches effectively opt into the 401 path so the SPA can react cleanly.
+
 ## High-Level Design
 1. **Azure AD App Registrations**
    - **Frontend SPA registration**  
