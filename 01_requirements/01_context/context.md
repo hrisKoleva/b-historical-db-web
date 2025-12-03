@@ -25,6 +25,7 @@
 20. after every change wait for acceptance and ask me to commit and push the changed to the git repository
 21. do not try to use Powershell - search and propose the use of agents. When I accept, use the agent.
 22. the code and documentation must be highly maintainable and self-expanatory even for new team members
+22.1. BEFORE STARTING TO GENERATE CODE, FIRST EXPLAIN WHAT EXACTLY AND WHY YOU'LL GENERATE, aND WAIT FOR APPROVAL TO PROCEED TO GENERATION
 23. the code and documentation you generate must be AI-friendly
 24. keep a track of ALL MY PROMPTS AND ALL YOUR RESPONSES in an file called conversation_history.md INCLUDE ANY CODE OR SQL YOU GENERATE
 25. After every prompt and every generated artefact (code, query, documentation, etc), create a separate file numbered sequentially with detailed explanation WHAT AND WHY WAS GENERATED. WHY means to explain how the generated content solves the task according to the prompt and the context. The files must be saved in 01_requirements\20_conversation folder.

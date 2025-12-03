@@ -1643,8 +1643,8 @@ const App = () => {
         });
 
         if (!response.ok) {
-          throw new Error('We could not load customers right now. Please try again.');
-        }
+          throw new Error('Session expired. Please refresh the page to log in again.')
+
 
         const payload = (await response.json()) as CustomerSearchResponse;
         setCustomers(payload.customers);
